@@ -21,25 +21,25 @@ export default {
 </script>
 <style scoped lang="scss">
 .au {
-    width: 164px;
-    height: 32px;
-    display: flex;
-    justify-content: space-between;
+  width: 164px;
+  height: 32px;
+  display: flex;
+  justify-content: space-between;
 }
 .au__button {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #FFF;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #FFF;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
 }
 .au__button-logo {
-    width: 18px;
+  width: 18px;
 }
 .au__button-logo--instagram {
-    width: 16px;
+  width: 16px;
 }
 </style>
