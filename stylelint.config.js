@@ -11,6 +11,9 @@ module.exports = {
       {
         ignorePseudoElements: ['v-deep']
       }
-    ]
+    ],
+    'no-descending-specificity': [
+      true
+    ] 
   }
 }
