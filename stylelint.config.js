@@ -13,7 +13,7 @@ module.exports = {
       }
     ],
     'no-descending-specificity': [
-      true
+      false
     ] 
   }
 }
