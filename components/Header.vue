@@ -56,7 +56,7 @@ export default {
 .header__logo-alpha {
   margin-top: 34px;
   margin-left: 6px;
-  width: 34px;
+  width: 40px;
   height: 15px;
   display: flex;
   justify-content: center;

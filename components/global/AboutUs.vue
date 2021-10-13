@@ -1,18 +1,18 @@
 <template lang="html">
-    <div class="au">        
-        <button class="au__button">
-            <img class="au__button-logo au__button-logo--instagram" src="~/assets/img/global/instagram.svg">
-        </button>
-        <button class="au__button">
-            <img class="au__button-logo" src="~/assets/img/global/facebook.svg">
-        </button>
-        <button class="au__button">
-            <img class="au__button-logo" src="~/assets/img/global/vk.svg">
-        </button>
-        <button class="au__button">
-            <img class="au__button-logo" src="~/assets/img/global/youtube.svg">
-        </button>
-    </div>
+  <div class="au">        
+    <button class="au__button">
+      <img class="au__button-logo au__button-logo--instagram" src="~/assets/img/global/instagram.svg">
+    </button>
+    <button class="au__button">
+      <img class="au__button-logo" src="~/assets/img/global/facebook.svg">
+    </button>
+    <button class="au__button">
+      <img class="au__button-logo" src="~/assets/img/global/vk.svg">
+    </button>
+    <button class="au__button">
+      <img class="au__button-logo" src="~/assets/img/global/youtube.svg">
+    </button>
+  </div>
 </template>
 <script>
 export default {
