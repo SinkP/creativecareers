@@ -1,7 +1,7 @@
 <template lang="html"> 
   <div class="main-layout"> 
-    <DHeader />
-    <Nuxt  class=""/>
+    <DHeader  />
+    <Nuxt  />
     <DFooter />
   </div>
 </template>
@@ -16,27 +16,6 @@ export default {
 }
 </script>
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-@font-face {
-    font-family: Geometric;
-    src: url('~/assets/fonts/Geometric.ttf');
-}
-@font-face {
-    font-family: OpenSans;
-    src: url('~/assets/fonts/OpenSans.ttf');
-}
-@font-face {
-    font-family: Jost;
-    src: url('~/assets/fonts/Jost.ttf');
-}
-@font-face {
-    font-family: Rubik;
-    src: url('~/assets/fonts/Rubik.ttf');
-}
 .main-layout { 
   width: 100%;
   padding-bottom: 31px;
