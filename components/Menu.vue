@@ -83,4 +83,7 @@ export default {
   font-weight: 600;
   color: #000;
 }
+.wrapper_menu:hover {
+  background: #F5F6F7;
+}
 </style>

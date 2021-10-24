@@ -49,12 +49,14 @@ export default {
 }
 .header__container--right {
   justify-content: flex-end;
+  align-items: center;
 }
 .header__logo-container {
   display: flex;
+  align-items: center;
 }
 .header__logo-alpha {
-  margin-top: 34px;
+  margin-top: 4px;
   margin-left: 6px;
   width: 40px;
   height: 15px;
@@ -64,9 +66,6 @@ export default {
   border: 2px;
   border-color:#F5F6F7;
   background: #365DE7;
-}
-.logo {
-  margin-top: 28px;
 }
 .logo-alpha__text {
   font-family: OpenSans, sans-serif;
@@ -81,19 +80,19 @@ export default {
 .header__link {
   height: 22px;
   margin-left: 32px;
-  margin-top: 29px;
   font-family: Jost, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
   line-height: 22px;
+  z-index: 2;
   color: #1E2228;
 }
 .header__link:hover {
   color: #365DE7;
 }
 .aboutus {
-  margin-top: 24px;
   margin-left: 79px;
+  z-index: 2;
 }
 </style>

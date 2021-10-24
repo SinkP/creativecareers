@@ -8,7 +8,7 @@
     </div>
     <div class="footer__container">
     <div class="footer__link-container">
-      <a href="#" class="footer__link footer__link--first">
+      <a href="#" class="footer__link">
         Обратная связь
       </a>
       <a href="#" class="footer__link">
@@ -22,10 +22,10 @@
       <p class="footer__text footer__year">
         © 2021 Creative Careers
       </p>
-      <p class="footer__text footer_design">
+      <!-- <p class="footer__text footer_design">
         Designed by
       </p>
-      <img class="flatonica" src="~/assets/img/global/Flatonica.svg" alt="лого flactinica">
+      <img class="flatonica" src="~/assets/img/global/Flatonica.svg" alt="лого flactinica"> -->
     </div>
   </div>
 </footer>
@@ -43,8 +43,8 @@ export default {
 <style scoped lang="scss">
 .footer{
   width: 1201px;
-  height: 74px;
   margin: 0 auto;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -59,7 +59,7 @@ export default {
   line-height: 23.12px;
   color: #1E2228;
 }
-.footer__link--first {
+.footer__link:first-child {
   margin-left: 0;
 }
 .footer__link:hover {
