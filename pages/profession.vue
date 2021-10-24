@@ -2,21 +2,21 @@
   <div class="profession">
     <div class="profession__main"> 
       <nav class="pages">
-        <a href="#" class="page">
+        <nuxt-link to="/home" class="page">
           Главная
-        </a>
+        </nuxt-link>
         /
-        <a href="#" class="page">
+        <nuxt-link to="#" class="page">
           Индустрии
-        </a>
+        </nuxt-link>
         /
-        <a href="#" class="page">
+        <nuxt-link to="#" class="page">
           Gamedev
-        </a>
+        </nuxt-link>
         /
-        <a href="#" class="page page_active">
+        <nuxt-link to="#" class="page page_actiive">
           Геймдизайнер
-        </a>
+        </nuxt-link>
       </nav>
       <DTitle class="title_profession">
         Геймдизайнер
@@ -38,7 +38,7 @@
             <h4 class="title_short-description">
               Геймдизайнер
             </h4>
-            <p class="text">
+            <p class="text text_short-description">
               Gamedev
             </p>
           </div>
@@ -46,7 +46,7 @@
             <h4 class="title_short-description">
               Уровень сложности
             </h4>
-            <p class="text">
+            <p class="text text_short-description">
               Для специалистов
               <img class="lightning" src="~/assets/img/profession/lightning.svg" alt="картинка молнии">
             </p>
@@ -55,12 +55,12 @@
             <h4 class="title_short-description">
               Также известен как
             </h4>
-            <p class="text">
+            <p class="text text_short-description">
               Game Design, Game Developer
             </p>
           </div>
         </div> 
-        <div class="description">
+        <div class="container">
           <h2 class="subtitle">
             Описание
           </h2>
@@ -76,7 +76,7 @@
             </p>
           </div>  
         </div>
-        <div class="responsibilities">
+        <div class="container">
           <h2 class="subtitle">
             Чем занимается геймдизайнер?
           </h2>
@@ -97,13 +97,10 @@
             <p class="text">
               Геймдизайнер в команде должен давать четкую структурированную информацию коллегам из разных департаментов: программистам, художникам, тестировщикам. Механика игры может влиять на характер и настроение игры наравне с художественной составляющей, поэтому геймдизайнеру важно точно описывать игровые процессы и объекты. С помощью прототипирования, геймдизайнер сообщает информацию программистам. Прототип – это примитивная версия планируемой игры, которая включает в себя основу механики, элементы будущего геймплея и ключевых сюжетных поворотов. Прототипы используются геймдизайнером и на ранних стадиях тестирования, особенно если проект создается по принципу TDD (test-driven development) – разработка через тестирование.
             </p>
-            <div class="skills">
-
-            </div>
           </div>
         </div>
         <div class="ads_big"></div>
-        <div class="knowledge">
+        <div class="container">
           <h2 class="subtitle">
             Что должен знать и уметь геймдизайнер
           </h2>
@@ -111,9 +108,137 @@
           <p class="text">
             Геймдизайнер должен понимать структуру проекта, мыслить логически, точно высчитывать игровые параметры. Помимо инженерного, стратегического мышления, он должен обладать и пониманием психологии игрока, чтобы все его решения, в первую очередь, делали игру интересной и привлекающей внимание. Сид Мейер – разработчик культовой серии игр “Цивилизация” говорил, что игрок и его интересы должны быть у геймдизайнера на первом месте.
           </p>
-          <div class="skills"></div>
+          <div class="skills">
+            <h2 class="subtitle subtitle_mini">
+              Умения и навыки
+            </h2>
+            <DText 
+              v-for="skillItem of skills"
+              :key="skillItem.text"
+
+              :icon="skillItem.icon"
+              :name="skillItem.name"
+              :text="skillItem.text"
+              class="content_skills"
+            />
+          </div>
+          <div class="tools">
+            <h2 class="subtitle subtitle_mini">
+              Знания и инстументы
+            </h2>
+            <DText 
+              v-for="toolItem of tools"
+              :key="toolItem.text"
+
+              :icon="toolItem.icon"
+              :name="toolItem.name"
+              :text="toolItem.text"
+              class="content_skills"
+            />
+            <div class="container_tools">
+              <ul class="list">
+                <li class="text text_list">
+                  Workflowy
+                </li>                
+                <li class="text text_list">
+                  Giphy
+                </li>
+                <li class="text text_list">
+                  Confluence
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 class="subtitle">
+            С кем работает геймдизайнер?
+          </h2>
+          <div>
+            <DWorker 
+              v-for="workerItem of workers"
+              :key="workerItem.name"
+
+              :icon="workerItem.icon"
+              :name="workerItem.name"
+              class="worker_block"
+            />
+          </div>
+        </div>
+        <div class="container">
+          <h2 class="subtitle">
+            Советы по поиску работы
+          </h2>
+          <DText 
+              v-for="adviceItem of advices"
+              :key="adviceItem.text"
+
+              :icon="adviceItem.icon"
+              :name="adviceItem.name"
+              :text="adviceItem.text"
+              class="content_advice"
+            />
+        </div>
+        <div class="container">
+          <h2 class="subtitle">
+            Известные представители профессии
+          </h2>
+          <DWorker 
+              v-for="dudeItem of dudes"
+              :key="dudeItem.name"
+
+              :icon="dudeItem.icon"
+              :name="dudeItem.name"
+              class="worker_block"
+            />
+        </div>
+        <div class="interesting">  
+          <h2 class="subtitle">
+            Также может быть интересно
+          </h2>
+          <div class="card_container">
+            <DCard 
+              v-for="cardItem of cards"
+              :key="cardItem.name"
+
+              :name="cardItem.name"
+              :salary="cardItem.salary"
+            />
+          </div>
+        </div>
+        <div class="read">
+          <h2 class="subtitle">
+            Смотреть и читать
+          </h2>
+          <div class="links_WatchAndRead">
+            <a href="#" class="link_read">
+              <p class="link_text">
+                Learn to Code or Game Design? Which is better? (and why?)
+              </p>
+              <img class="arrow" src="~/assets/img/profession/arrow.svg">
+            </a>     
+            <a href="#" class="link_read">
+              <p class="link_text">
+                Game a Week: Teaching Students to Prototype 
+              </p>
+              <img class="arrow" src="~/assets/img/profession/arrow.svg">
+            </a>  
+            <a href="#" class="link_read">
+              <p class="link_text">
+                Prototyping Games in Unity? 
+              </p>
+              <img class="arrow" src="~/assets/img/profession/arrow.svg">
+            </a>         
+          </div>
         </div>
       </div>
+
+
+
+
+
+
+
       <div class="container_menu">
         <DMenu class="menu">
 
@@ -126,23 +251,111 @@
 <script>
 import DTitle from '~/components/global/Title.vue'
 import DMenu from '~/components/Menu.vue'
+import DText from '~/components/global/SampleText.vue'
+import DWorker from '~/components/global/SampleWorker.vue'
+import DCard from '~/components/global/Card.vue'
 export default {
     components: {
       DTitle,
-      DMenu
-    }
+      DMenu,
+      DText,
+      DWorker,
+      DCard
+    },
+    data() {
+        return {
+            skills: [
+                {
+                  icon: require('../assets/img/profession/check.svg'),
+                  name: 'Математическое и стратегическое мышление',
+                  text: 'Умение рассчитывать вероятность, видеть количественные зависимости, комбинировать числовые значения – все это пригодится тебе для создания непротиворечивых и логически верных правил игры',
+                },
+                {
+                  icon: require('../assets/img/profession/check.svg'),
+                  name: 'Проектирование и планирование',
+                  text: 'Тебе важно научиться создавать “архитектуру” игрового проекта, делить большие задачи на подзадачи, а также составлять различные схемы;',
+                },
+                {
+                  icon: require('../assets/img/profession/check.svg'),
+                  name: 'Любовь к играм',
+                  text: 'Тебе важно по-настоящему любить игры, постоянно узнавать новое не только в области компьютерных новинок, но искать вдохновение в настольных и даже спортивных играх. Эрудиция и большой багаж игрового опыта помогут тебе в создании новых игр;',
+                },
+            ],
+            tools: [
+              {
+                icon: require ('../assets/img/profession/toolsicon.svg'),
+                name: 'Программы планирования и ведения проектов',
+                text: 'Для создания текстовой документации, блок-схем, чек-листов и таблиц, которыми ты можешь быстро поделиться с коллегами, тебе понадобится знание таких платформ как:',
+              }
+            ],
+            workers: [
+              {
+                icon: require ('../assets/img/profession/humanIcon.svg'),
+                name: 'Дизайнер игрового процесса',
+              },
+              {
+                icon: require ('../assets/img/profession/humanIcon.svg'),
+                name: 'Сценарист',
+              },
+              {
+                icon: require ('../assets/img/profession/humanIcon.svg'),
+                name: 'Дизайнер уровней',
+              }
+            ],
+            advices: [
+              {
+                icon: require ('../assets/img/profession/mark.svg'),
+                name: 'Собери портфолио',
+                text: 'В портфолио можно продемонстрировать прототипы механики, видео отрывки, разработанных тобой модов к играм или короткие мини-игры. Определись с платформой, для которой ты хочешь разрабатывать игры, а также с жанром, в котором тебе приятнее всего работать. Учитывай эти факторы при выборе компании – создавай подходящие демонстрационные материалы. Продемонстрируй в портфолио и навыки письменной коммуникации – создай описание своих проектов, таблицы и дополнительные пояснения для разных департаментов.',
+              },
+              {
+                icon: require ('../assets/img/profession/mark.svg'),
+                name: 'Получи опыт в тестировании игр',
+                text: 'Многие геймдизайнеры начинали свой путь с тестирования видеоигр. Такой опыт позволит тебе выработать представление о возможных сложностях и дефектах, возникающих при создании игр, а также даст возможность исследовать самые разнообразные игровые продукты.',
+              },
+            ],
+            dudes: [
+              {
+                icon: require ('../assets/img/profession/markus.svg'),
+                name: 'Маркус Перссон',
+              },
+              {
+                icon: require ('../assets/img/profession/ueel.svg'),
+                name: 'Уилл Райт',
+              },
+            ],
+            cards: [
+              {
+                name: 'Геймдизайнер',
+                salary: 'Зарплата: 250 тыс. ₽',
+              },
+              {
+                name: 'Продюссер',
+                salary: 'Зарплата: 250 тыс. ₽',
+              },
+              {
+                name: 'Ассистент продюссера',
+                salary: 'Зарплата: 250 тыс. ₽',
+              },
+            ],
+        }
+    },
 }
 </script>
 <style lang="scss">
 .header {
   background-color: #fff;
 }
+.footer {
+  padding-top: 36px;
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
+}
 .profession {
   width: 1200px;
-  min-height: 5382px;
   position: relative;
   margin: 0 auto;
   padding-top: 394px;
+  padding-bottom: 142px;
 }
 .profession__main {
   width: 1200px;
@@ -157,21 +370,6 @@ export default {
   background-repeat: no-repeat;
   border-radius: 12px;
   z-index: 0;
-}
-.pages {
-  color: #9F9CE9;
-  font-family: Jost, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  word-spacing: 9px;
-}
-.page {
-  color: #9F9CE9;
-}
-.page_active {
-  color: #fff;
 }
 .title_profession {
   margin-top: 36px;
@@ -232,14 +430,13 @@ export default {
 }
 .description {
   width: 892px;
-  height: 490px;
   margin-top: 24px;
   padding: 24px;
   background: #fff;
   border-radius: 12px;
   }
 .text {
-  margin-top: 8px;
+  margin-top: 24px;
   font-family: Rubik, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -262,25 +459,16 @@ export default {
   background: #FFF;
   border-radius: 12px;
 }
-.subtitle {
-  font-family: Jost, sans-serif;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 40px;
-  letter-spacing: 0;
-  text-align: left;
+.subtitle_mini {
+  font-size: 24px;
 }
 .wrapper_description {
   width: 789px;
-  height: 390px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
-.responsibilities {
+.container {
   width: 892px;
-  height: 1226px;
   margin-top: 24px;
   padding: 24px;
   background: #FFF;
@@ -290,18 +478,14 @@ export default {
   width: 844px;
   height: 250px;
   margin-top: 24px;
-  margin-bottom: 24px;
 }
 .wrapper_responsibilities {
   width: 789px;
-  height: 832px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .knowledge {
   width: 892px;
-  height: 1517px;
   margin-top: 24px;
   padding: 24px;
   border-radius: 12px;
@@ -315,13 +499,83 @@ export default {
 }
 .skills {
   width: 892px;
-  height: 640px;
+  margin-top: 32px;
+  padding: 32px;
   margin-left: -24px;
   background:#F1FCF7;
 }
+.content_skills {
+  margin-top: 24px;
+}
+.content_skills:last-child {
+  margin-bottom: 0;
+}
+.tools {
+  margin-top: 32px;
+}
+.container_tools {
+  padding: 13px 18px;
+  width: 538px;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: #F6F1FC;
+}
+.text_list {
+  margin-top: 0;
+}
+.worker_block {
+  margin-top: 24px;
+}
+.content_advice {
+  margin-top: 24px;
+}
+.interesting {
+  width: 892px;
+  margin-top: 48px;
+}
+.card_container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+.read {
+  margin-top: 48px;
+}
+.links_WatchAndRead {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.link_read {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.link_read:last-child {
+  margin-bottom: 0;
+}
+.link_text {
+  font-family: Jost, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 35px;
+  color: #4F5A6A;
+}
+.link_text:hover {
+  text-decoration: underline;
+}
+.arrow {
+  width: 32px;
+}
+
+
+
+
 .menu {
   position: sticky;
   top: 48px;
+  z-index: 2;
 }
 .ads_small {
   position: sticky;
@@ -336,5 +590,8 @@ export default {
   height: 200px;
   margin-top: 24px;
   background: #ECECEC;
+}
+.text_short-description {
+  margin-top: 8px;
 }
 </style>

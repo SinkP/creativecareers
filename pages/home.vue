@@ -3,7 +3,6 @@
     <div>
       <h1 class="home__title">
         <span class="home__title--undefault">Помощь в карьере</span>
-          <br>
           от HR и топовых специалистов
       </h1>    
         <p class="home__text">
@@ -18,11 +17,9 @@
 </template>
 <script>
 import DButton from '~/components/global/Button.vue'
-import DHImage from '~/components/Home_Image.vue'
 export default {
   components: {
     DButton,
-    DHImage
   }
 }
 </script>
@@ -35,14 +32,10 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-  ::v-deep {
-    .home__button {
-      background-color: #365DE7;
-    }
-  }
 }
 .home__title {
-  width: 578px;
+  max-width: 578px;
+  max-height: 210px;
   margin-top: 149px;
   font-family: Jost, sans-serif;
   font-size: 64px;
@@ -67,13 +60,13 @@ export default {
   text-align: left;
 }
 .home__button {
-  margin-top: 50px;
+  margin-top: 32px;
 }
 .home-image {
   position: absolute;
   width: 947px;
   height: 900.46px;
   left: 450px;
-  top: 0;
+  top: -79px;
 }
 </style>
