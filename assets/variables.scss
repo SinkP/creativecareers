@@ -1,3 +1,48 @@
 $btn-icon-font-size: 18px;	
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+@font-face {
+    font-family: Geometric;
+    src: url('~/assets/fonts/Geometric.ttf');
+}
+@font-face {
+    font-family: OpenSans;
+    src: url('~/assets/fonts/OpenSans.ttf');
+}
+@font-face {
+    font-family: Jost;
+    src: url('~/assets/fonts/Jost.ttf');
+}
+@font-face {
+    font-family: Rubik;
+    src: url('~/assets/fonts/Rubik.ttf');
+}
+.subtitle {
+  font-family: Jost, sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: left;
+}
+.pages {
+  color: #9F9CE9;
+  font-family: Jost, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  word-spacing: 9px;
+}
+.page {
+  color: #9F9CE9;
+}
+.page_active {
+  color: #fff;
+}
 $main: #365DE7;
