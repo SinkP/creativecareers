@@ -10,7 +10,7 @@ module.exports = {
       true,
       {
         ignorePseudoElements: ['v-deep']
-      }
+      },
     ],
     'no-descending-specificity': [
       false
