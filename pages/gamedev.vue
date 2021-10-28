@@ -42,9 +42,50 @@
       <img class="image_hend" src="~/assets/img/industry/hend.png">
     </div>
     <div class="container_gamedev">
-      <div class="menu_gamedev">
-        
-      </div>
+      <div class="menu_gamedevWrapper">
+        <DMenu class="menu_gamedev">
+          <a href="#" class="link_menu">
+              <div class="wrapper_menu wrapper_menu-active">
+                <h4 class="title_menu title_menu-active">Production</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Design</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Art</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Animation</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Technical art</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Audio</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Programming</h4>
+              </div>
+            </a>
+            <a href="#" class="link_menu">
+              <div class="wrapper_menu">
+                <h4 class="title_menu">Quality assurance</h4>
+              </div>
+            </a>
+        </DMenu>
+      </div>  
       <div class="basic_container">
         <div class="production_gamedev">
           <h3 class="subtitle">
@@ -88,6 +129,9 @@
             />
           </div>
         </div>
+        <DSubscription 
+          class="subscription"
+        />
       </div>
     </div>
   </div>
@@ -95,10 +139,14 @@
 <script>
 import DTitle from '~/components/global/Title.vue'
 import DCard from '~/components/global/Card.vue'
+import DMenu from '~/components/MenuGamedev.vue'
+import DSubscription from '~/components/Subscription.vue'
 export default {
     components: {
       DTitle,
       DCard,
+      DMenu,
+      DSubscription,
     },
     data () {
       return {
@@ -129,6 +177,10 @@ export default {
 <style lang="scss">
 .header {
   background-color: #fff;
+}
+.footer {
+  padding-top: 36px;
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
 }
 .gamedev {
   width: 1200px;
@@ -168,7 +220,7 @@ export default {
   height: 81px;
   margin-top: 100px;
   margin-left: -103px;
-  padding: 21px 20px;
+  padding: 21px 110px 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,15 +266,8 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.menu_gamedev {
-  width: 205px;
-  height: 364px;
-  background: #FFF;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.07);
-  border-radius: 12px;
-}
 .basic_container {
-  width: 924px;
+  width: 925px;
 }
 .text_production {
   margin-top: 7px;
@@ -239,7 +284,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 34px;
-  justify-content: space-between;
 }
 .number_production {
   width: 114px;
@@ -261,5 +305,13 @@ export default {
 }
 .production_gamedev {
   margin-bottom: 64px;
+}
+.menu_gamedev {
+  position: sticky;
+  top: 48px;
+}
+.subscription {
+  margin-bottom: 129px;
+  justify-self: flex-start;
 }
 </style>

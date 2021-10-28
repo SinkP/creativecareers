@@ -10,7 +10,7 @@
           Индустрии
         </nuxt-link>
         /
-        <nuxt-link to="#" class="page">
+        <nuxt-link to="/gamedev" class="page">
           Gamedev
         </nuxt-link>
         /
@@ -244,7 +244,51 @@
 
       <div class="container_menu">
         <DMenu class="menu">
-
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu wrapper_menu-active">
+              <h4 class="title_menu title_menu-active">Описание</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Знания и умения</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Инструменты</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">С кем работает</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Как стать</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Советы</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Известные представители</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Может быть интересно</h4>
+            </div>
+          </a>
+          <a href="#" class="link_menu">
+            <div class="wrapper_menu">
+              <h4 class="title_menu">Смотреть и читать</h4>
+            </div>
+          </a>
         </DMenu>
         <div class="ads_small"></div>
       </div>
@@ -253,7 +297,7 @@
 </template>
 <script>
 import DTitle from '~/components/global/Title.vue'
-import DMenu from '~/components/Menu.vue'
+import DMenu from '~/components/MenuProfession.vue'
 import DText from '~/components/global/SampleText.vue'
 import DWorker from '~/components/global/SampleWorker.vue'
 import DCard from '~/components/global/Card.vue'
