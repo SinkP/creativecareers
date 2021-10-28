@@ -1,6 +1,7 @@
 <template lang="html">
   <a href="#" class="card">
-    <!-- <img class="image" :src="(icon)"> -->
+    <img class="image" :src="(icon)">
+    <div class="shadow" />
     <h3 class="name">
       {{ name }}
     </h3>
@@ -13,17 +14,17 @@
 export default {
   props: {
         name: {
-            title: String,
+            type: String,
             default: '',
         },
         salary: {
-            text: String,
+            type: String,
             default: '',
         },
-        // icon: {
-        //     text: String,
-        //     default: '~/assets/img/global/cardBg.png',
-        // },
+        icon: {
+            type: String,
+            default: '',
+        },
     },
 }
 </script>
@@ -33,12 +34,12 @@ export default {
   height: 180px;
   padding: 18px;
   border-radius: 12px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   transition: 0.2s;
   justify-self: center;
-  background-image: url('~/assets/img/global/cardBg.png');
 }
 .card:hover {
   margin-top: -5px;
@@ -69,8 +70,21 @@ export default {
 .image {
   width: 279px;
   height: 180px;
+  left: 0;
+  bottom: 0;
   position: absolute;
   object-fit: cover;
   object-position: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, 0.8) 80.43%);
+}
+.shadow {
+  width: 279px;
+  height: 180px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, 0.8) 80.43%);
 }
 </style>
