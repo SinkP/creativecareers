@@ -1,7 +1,9 @@
 <template lang="html">
-  <h1 class="logo">
-    CreativeCareers
-  </h1>
+  <nuxt-link to="/home">
+    <h1 class="logo">
+      CreativeCareers
+    </h1>
+  </nuxt-link>
 </template>
 <script>
 export default {
@@ -17,6 +19,7 @@ export default {
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.02em;
+  color: #000;
   font-family: Geometric, sans-serif;
 }
 </style>

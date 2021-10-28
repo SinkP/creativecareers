@@ -41,13 +41,12 @@ export default {
 .name {
   margin-left: 12px;
   font-family: Jost, sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 34px;
   letter-spacing: 0;
   text-align: left;
-  color: #1E2228;
 }
 .text {
   width: 502px;
