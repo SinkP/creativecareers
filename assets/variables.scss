@@ -47,4 +47,28 @@ $btn-icon-font-size: 18px;
 .page_active {
   color: #fff;
 }
+.wrapper_menu {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.title_menu {
+  font-family: Jost, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #79829A;
+}
+.wrapper_menu-active {
+  background: #F5F6F7;
+}
+.title_menu-active {
+  font-weight: 600;
+  color: #000;
+}
+.wrapper_menu:hover {
+  background: #F5F6F7;
+}
 $main: #365DE7;
