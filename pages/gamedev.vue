@@ -49,6 +49,11 @@
         <div class="production_gamedev">
           <h3 class="subtitle">
             Production
+            <div class="number_production">
+              <p class="number_text">
+                6 профессий
+              </p>
+            </div>
           </h3>
           <p class="text_production">
             Организуют процессы создания игры и следят за тем, чтобы игра была сделана в указанные сроки и бюджет
@@ -59,7 +64,27 @@
               :key="cardItem.name"
 
               :name="cardItem.name"
-              :salary="cardItem.salary"
+            />
+          </div>
+        </div>
+        <div class="production_gamedev">
+          <h3 class="subtitle">
+            Design
+            <div class="number_production">
+              <p class="number_text">
+                6 профессий
+              </p>
+            </div>
+          </h3>
+          <p class="text_production">
+            Придумывают концепт, сюжет и атмосферу игры, её внешний вид и то, как люди будут в неё играть
+          </p>
+          <div class="items_production">
+            <DCard 
+            v-for="cardItem of cards"
+              :key="cardItem.name"
+
+              :name="cardItem.name"
             />
           </div>
         </div>
@@ -88,10 +113,10 @@ export default {
                   name: 'Ассистент продюссера',
                 },
                 {
-                  name: 'Геймдизайнер',
+                  name: 'Комьюнити менеджер',
                 },
                 {
-                  name: 'Продюссер',
+                  name: 'Маркетолог',
                 },
                 {
                   name: 'Ассистент продюссера',
@@ -139,13 +164,15 @@ export default {
   color: rgba(255, 255, 255, 0.7);
 }
 .informers {
-  width: 312px;
-  height: 44px;
-  margin-top: 121px;
-  margin-left: -83px;
+  width: 442px;
+  height: 81px;
+  margin-top: 100px;
+  margin-left: -103px;
+  padding: 21px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 12px;
   background: #F5F7F7;
 }
 .line_gamedev-informers {
@@ -213,5 +240,26 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 34px;
   justify-content: space-between;
+}
+.number_production {
+  width: 114px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7px;
+  background: #E6E9EC;
+  border-radius: 48px;
+}
+.number_text {
+  font-family: Rubik, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1E2228;
+}
+.production_gamedev {
+  margin-bottom: 64px;
 }
 </style>

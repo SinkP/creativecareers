@@ -1,10 +1,10 @@
 <template lang="html">
-    <div class="cotnainer_worker">
+    <a href="#" class="cotnainer_worker">
       <img class="icon_worker" :src="(icon)">
       <h3 class="name_worker">
         {{ name }}
       </h3>
-    </div>
+    </a>
 </template>
 <script>
 export default {
@@ -33,6 +33,7 @@ export default {
 }
 .name_worker {
   font-family: Jost, sans-serif;
+  color: #000;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

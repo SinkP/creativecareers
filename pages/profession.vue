@@ -138,12 +138,15 @@
             <div class="container_tools">
               <ul class="list">
                 <li class="text text_list">
+                  <div class="circle"></div>
                   Workflowy
                 </li>                
                 <li class="text text_list">
+                  <div class="circle"></div>
                   Giphy
                 </li>
                 <li class="text text_list">
+                  <div class="circle"></div>
                   Confluence
                 </li>
               </ul>
@@ -505,7 +508,7 @@ export default {
   background:#F1FCF7;
 }
 .content_skills {
-  margin-top: 24px;
+  margin-top: 32px;
 }
 .content_skills:last-child {
   margin-bottom: 0;
@@ -567,6 +570,13 @@ export default {
 }
 .arrow {
   width: 32px;
+}
+.circle {
+  width: 5px;
+  height: 5px;
+  margin-right: 12px;
+  background: #000;
+  border-radius: 50%;
 }
 
 
