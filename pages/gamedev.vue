@@ -105,6 +105,7 @@
               :key="cardItem.name"
 
               :name="cardItem.name"
+              :icon="cardItem.icon"
             />
           </div>
         </div>
@@ -126,6 +127,7 @@
               :key="cardItem.name"
 
               :name="cardItem.name"
+              :icon="cardItem.icon"
             />
           </div>
         </div>
@@ -153,21 +155,27 @@ export default {
         cards: [
                 {
                   name: 'Геймдизайнер',
+                  icon: require ('~/assets/img/card/1.png'),
                 },
                 {
                   name: 'Продюссер',
+                  icon: require ('~/assets/img/card/2.png'),
                 },
                 {
                   name: 'Ассистент продюссера',
+                  icon: require ('~/assets/img/card/3.png'),
                 },
                 {
                   name: 'Комьюнити менеджер',
+                  icon: require ('~/assets/img/card/4.png'),
                 },
                 {
                   name: 'Маркетолог',
+                  icon: require ('~/assets/img/card/5.png'),
                 },
                 {
                   name: 'Ассистент продюссера',
+                  icon: require ('~/assets/img/card/6.png'),
                 },
               ],
       }

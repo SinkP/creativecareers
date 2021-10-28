@@ -206,6 +206,7 @@
 
               :name="cardItem.name"
               :salary="cardItem.salary"
+              :icon="cardItem.icon"
             />
           </div>
         </div>
@@ -375,14 +376,17 @@ export default {
               {
                 name: 'Геймдизайнер',
                 salary: 'Зарплата: 250 тыс. ₽',
+                icon: require ('~/assets/img/card/1.png'),
               },
               {
                 name: 'Продюссер',
                 salary: 'Зарплата: 250 тыс. ₽',
+                icon: require ('~/assets/img/card/2.png'),
               },
               {
                 name: 'Ассистент продюссера',
                 salary: 'Зарплата: 250 тыс. ₽',
+                icon: require ('~/assets/img/card/3.png'),
               },
             ],
         }
