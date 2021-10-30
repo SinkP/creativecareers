@@ -331,7 +331,7 @@ export default {
             ],
             tools: [
               {
-                icon: require ('../assets/img/profession/toolsicon.svg'),
+                icon: require ('../assets/img/profession/toolsIcon.svg'),
                 name: 'Программы планирования и ведения проектов',
                 text: 'Для создания текстовой документации, блок-схем, чек-листов и таблиц, которыми ты можешь быстро поделиться с коллегами, тебе понадобится знание таких платформ как:',
               }
