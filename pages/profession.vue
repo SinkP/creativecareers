@@ -331,7 +331,7 @@ export default {
             ],
             tools: [
               {
-                icon: require ('../assets/img/profession/toolsIcon.svg'),
+                icon: require ('../assets/img/profession/toolsIcon.svg'), 
                 name: 'Программы планирования и ведения проектов',
                 text: 'Для создания текстовой документации, блок-схем, чек-листов и таблиц, которыми ты можешь быстро поделиться с коллегами, тебе понадобится знание таких платформ как:',
               }
@@ -424,6 +424,11 @@ export default {
 }
 .title_profession {
   margin-top: 36px;
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 .text_profession {
   width: 584px;
@@ -437,6 +442,8 @@ export default {
   letter-spacing: 0;
   text-align: left;
   color: #9F9CE9;
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 .container_date {
   margin-top: 36px;
@@ -557,6 +564,7 @@ export default {
 }
 .content_skills {
   margin-top: 32px;
+  width: 540px;
 }
 .content_skills:last-child {
   margin-bottom: 0;
@@ -579,6 +587,7 @@ export default {
 }
 .content_advice {
   margin-top: 24px;
+  width: 705px;
 }
 .interesting {
   width: 892px;

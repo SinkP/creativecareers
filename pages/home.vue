@@ -44,6 +44,8 @@ export default {
   line-height: 70px;
   letter-spacing: -0.03em;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .home__title--undefault {
   font-weight: 700;

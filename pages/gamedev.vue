@@ -212,9 +212,15 @@ export default {
 }
 .title_gamedev {
   margin-top: 48px;
+  width: 500px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+
 }
 .text_main-gamedev {
   width: 424px;
+  height: 75px;
   margin-top: 24px;
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -222,6 +228,8 @@ export default {
   font-size: 16px;
   line-height: 25px;
   color: rgba(255, 255, 255, 0.7);
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 .informers {
   width: 442px;

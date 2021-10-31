@@ -47,16 +47,21 @@ export default {
 .name {
   font-family: Jost, sans-serif;
   font-size: 20px;
+  width: 254px;
   font-style: normal;
   font-weight: 600;
   line-height: 29px;
   letter-spacing: 0;
   text-align: left;
   color: #FFF;
-  z-index: 2;
+  z-index: 2; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 .salary {
   margin-top: 4px;
+  width: 254px;
   font-family: Rubik, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -66,6 +71,9 @@ export default {
   text-align: left;
   color: #FFF;
   z-index: 2;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 .image {
   width: 279px;

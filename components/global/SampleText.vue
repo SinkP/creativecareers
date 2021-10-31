@@ -49,7 +49,6 @@ export default {
   text-align: left;
 }
 .text {
-  width: 502px;
   margin-top: 15px;
 }
 </style>
