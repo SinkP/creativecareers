@@ -22,10 +22,6 @@
       <p class="footer__text footer__year">
         © 2021 Creative Careers
       </p>
-      <!-- <p class="footer__text footer_design">
-        Designed by
-      </p>
-      <img class="flatonica" src="~/assets/img/global/Flatonica.svg" alt="лого flactinica"> -->
     </div>
   </div>
 </footer>
@@ -37,17 +33,20 @@ export default {
   components: {
     DLogo,
     DAboutUs
-}
+  }
 }
 </script>
 <style scoped lang="scss">
-.footer{
+.footer {
   width: 1201px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 36px;
 }
 .footer__link {
   height: 23px;
@@ -75,7 +74,7 @@ export default {
 .footer__year {
   margin-right: 32px;
 }
-.footer__text {  
+.footer__text {
   font-family: Rubik, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -85,5 +84,12 @@ export default {
 }
 .flatonica {
   margin-left: 4px;
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    padding: 0 20px;
+    padding-top: 36px;
+  }
 }
 </style>

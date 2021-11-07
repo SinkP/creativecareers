@@ -1,18 +1,20 @@
 <template lang="html">
   <main class="home">
-    <div>
-      <h1 class="home__title">
-        <span class="home__title--undefault">Помощь в карьере</span>
-          от HR и топовых специалистов
-      </h1>    
-        <p class="home__text">
-          Управление брендом искажает конвергентный медийный канал.
-        </p>
-      <DButton class="home__button">
-        Начать поиск
-      </DButton>
-    </div>
-    <img class="home-image" src="~/assets/img/home_image/4.svg">
+    <div class="home-wrapper">
+      <div>
+        <h1 class="home__title">
+          <span class="home__title--undefault">Помощь в карьере</span>
+            от HR и топовых специалистов
+        </h1>
+          <p class="home__text">
+            Управление брендом искажает конвергентный медийный канал.
+          </p>
+        <DButton class="home__button">
+          Начать поиск
+        </DButton>
+      </div>
+      <img class="home-image" src="~/assets/img/home_image/4.svg">
+      </div>
   </main>
 </template>
 <script>
@@ -23,15 +25,22 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .home {
-  width: 1400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-wrapper {
+  max-width: 1200px !important;
+  width: 100%;
   height: 715px;
   margin: 0 auto;
-  padding-left: 184px;
+  padding-left: 64px;
   position: relative;
   display: flex;
   justify-content: space-between;
+  background: transparent !important;
 }
 .home__title {
   max-width: 578px;
@@ -70,5 +79,16 @@ export default {
   height: 900.46px;
   left: 450px;
   top: -79px;
+  pointer-events: none;
+}
+
+@media (max-width: 1400px) {
+  .home {
+    padding-left: 50px;
+  }
+
+  .home-image {
+    left: 300px;
+  }
 }
 </style>

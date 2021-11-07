@@ -1,5 +1,5 @@
-<template lang="html"> 
-  <div class="main-layout"> 
+<template lang="html">
+  <div class="main-layout">
     <DHeader  />
     <Nuxt  />
     <DFooter />
@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.main-layout { 
+.main-layout {
   width: 100%;
   padding-bottom: 31px;
   background-color: #F5F6F7;

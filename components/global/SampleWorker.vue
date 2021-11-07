@@ -1,27 +1,27 @@
 <template lang="html">
-    <a href="#" class="cotnainer_worker">
-      <img class="icon_worker" :src="(icon)">
-      <h3 class="name_worker">
-        {{ name }}
-      </h3>
-    </a>
+  <a href="#" class="badge">
+    <img class="icon" :src="(icon)">
+    <h3 class="title">
+      {{ title }}
+    </h3>
+  </a>
 </template>
 <script>
 export default {
   props: {
-        icon: {
-            type: String,
-            default: '',
-        },
-        name: {
-            title: String,
-            default: '',
-        },
+    icon: {
+      type: String,
+      default: '',
     },
+    title: {
+      type: String,
+      default: '',
+    },
+  },
 }
 </script>
 <style scoped lang="scss">
-.cotnainer_worker {
+.badge {
   width: auto;
   height: 50px;
   margin-right: 18px;
@@ -30,8 +30,13 @@ export default {
   background: #F5F6F7;
   display:inline-flex;
   align-items: center;
+  transition: 0.3s;
+
+  &:hover {
+    background: #ececec;
+  }
 }
-.name_worker {
+.title {
   font-family: Jost, sans-serif;
   color: #000;
   font-size: 18px;
@@ -41,7 +46,7 @@ export default {
   letter-spacing: 0;
   text-align: left;
 }
-.icon_worker {
+.icon {
   width: 20px;
   margin-right: 10px;
 }

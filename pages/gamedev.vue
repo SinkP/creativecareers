@@ -1,93 +1,27 @@
 <template lang="html">
-  <div class="gamedev">
-    <div class="main_gamedev">
-      <nav class="pages">
-        <nuxt-link to="/home" class="page">
-          Главная
-        </nuxt-link>
-        /
-        <nuxt-link to="#" class="page">
-          Индустрии
-        </nuxt-link>
-        /
-        <nuxt-link to="#" class="page page_active">
-          Gamedev
-        </nuxt-link>
-      </nav>
-      <DTitle class="title_gamedev">
+  <div class="direction">
+    <div class="main_direction">
+      <DNavigation :links="links" />
+      <DTitle class="title_direction">
         Gamedev
       </DTitle>
-      <p class="text_main-gamedev">
+      <p class="text_main-direction">
         В современном мире создание видеоигр является одним из наиболее крупных сегментов индустрии развлечений.
       </p>
       <div class="informers">
-        <div class='salary_gamedev'> 
-          <p class="text_informers">
-            средняя зарплата
-          </p>
-          <p class="numbers_informers">
-            250 тыс. ₽
-          </p>
-        </div>
-        <div class="line_gamedev-informers" />
-        <div class="specialties_gamedev">
-          <p class="text_informers">
-            специальностей
-          </p>
-          <p class="numbers_informers">
-            117 профессий
-          </p>
-        </div>
+        <DSpecification :cols="specification" :reverse="true" />
       </div>
       <img class="image_hend" src="~/assets/img/industry/hend.png">
     </div>
-    <div class="container_gamedev">
-      <div class="menu_gamedevWrapper">
-        <DMenu class="menu_gamedev">
-          <a href="#" class="link_menu">
-              <div class="wrapper_menu wrapper_menu-active">
-                <h4 class="title_menu title_menu-active">Production</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Design</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Art</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Animation</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Technical art</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Audio</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Programming</h4>
-              </div>
-            </a>
-            <a href="#" class="link_menu">
-              <div class="wrapper_menu">
-                <h4 class="title_menu">Quality assurance</h4>
-              </div>
-            </a>
-        </DMenu>
-      </div>  
+    <div class="container_direction">
+      <div class="menu_direction_wrapper">
+        <DMenu class="direction-menu"
+          :active="0"
+          :list="menuLinks"
+        />
+      </div>
       <div class="basic_container">
-        <div class="production_gamedev">
+        <div class="production_direction">
           <h3 class="subtitle">
             Production
             <div class="number_production">
@@ -100,16 +34,16 @@
             Организуют процессы создания игры и следят за тем, чтобы игра была сделана в указанные сроки и бюджет
           </p>
           <div class="items_production">
-            <DCard 
-            v-for="cardItem of cards"
+            <DCard
+              v-for="cardItem of cards"
               :key="cardItem.name"
-
+              :big="true"
               :name="cardItem.name"
               :icon="cardItem.icon"
             />
           </div>
         </div>
-        <div class="production_gamedev">
+        <div class="production_direction">
           <h3 class="subtitle">
             Design
             <div class="number_production">
@@ -122,7 +56,7 @@
             Придумывают концепт, сюжет и атмосферу игры, её внешний вид и то, как люди будут в неё играть
           </p>
           <div class="items_production">
-            <DCard 
+            <DCard
             v-for="cardItem of cards"
               :key="cardItem.name"
 
@@ -131,7 +65,7 @@
             />
           </div>
         </div>
-        <DSubscription 
+        <DSubscription
           class="subscription"
         />
       </div>
@@ -141,45 +75,99 @@
 <script>
 import DTitle from '~/components/global/Title.vue'
 import DCard from '~/components/global/Card.vue'
-import DMenu from '~/components/MenuGamedev.vue'
+import DMenu from '~/components/global/Menu.vue'
 import DSubscription from '~/components/Subscription.vue'
+import DNavigation from '~/components/global/Navigation.vue'
+import DSpecification from '~/components/profession/Specification.vue'
 export default {
-    components: {
-      DTitle,
-      DCard,
-      DMenu,
-      DSubscription,
-    },
-    data () {
-      return {
-        cards: [
-                {
-                  name: 'Геймдизайнер',
-                  icon: require ('~/assets/img/card/1.png'),
-                },
-                {
-                  name: 'Продюссер',
-                  icon: require ('~/assets/img/card/2.png'),
-                },
-                {
-                  name: 'Ассистент продюссера',
-                  icon: require ('~/assets/img/card/3.png'),
-                },
-                {
-                  name: 'Комьюнити менеджер',
-                  icon: require ('~/assets/img/card/4.png'),
-                },
-                {
-                  name: 'Маркетолог',
-                  icon: require ('~/assets/img/card/5.png'),
-                },
-                {
-                  name: 'Ассистент продюссера',
-                  icon: require ('~/assets/img/card/6.png'),
-                },
-              ],
-      }
+  components: {
+    DTitle,
+    DCard,
+    DMenu,
+    DSubscription,
+    DNavigation,
+    DSpecification,
+  },
+  data () {
+    return {
+      links: [
+        {
+          title: 'Главная',
+          to: '/',
+        },
+        {
+          title: 'Индустрии',
+          to: '/',
+        },
+        {
+          title: 'direction',
+          to: '/',
+        },
+        {
+          title: 'Геймдизайнер',
+          to: '/',
+        },
+      ],
+      specification: [
+        {
+          title: 'Геймдизайнер',
+          description: 'Gamedev',
+        },
+        {
+          title: 'Также известен как',
+          description: 'Game Design, Game Developer',
+        },
+      ],
+      menuLinks: [
+        {
+          title: 'Начало',
+          href: '#fff',
+        },
+        {
+          title: 'Начало',
+          href: '#fff',
+        },
+        {
+          title: 'Начало',
+          href: '#fff',
+        },
+        {
+          title: 'Начало',
+          href: '#fff',
+        },
+        {
+          title: 'Начало',
+          href: '#fff',
+        },
+      ],
+      cards: [
+        {
+          name: 'Геймдизайнер',
+          icon: require ('~/assets/img/card/1.png'),
+        },
+        {
+          name: 'Продюссер',
+          icon: require ('~/assets/img/card/2.png'),
+        },
+        {
+          name: 'Ассистент продюссера',
+          icon: require ('~/assets/img/card/3.png'),
+        },
+        {
+          name: 'Комьюнити менеджер',
+          icon: require ('~/assets/img/card/4.png'),
+        },
+        {
+          name: 'Маркетолог',
+          icon: require ('~/assets/img/card/5.png'),
+        },
+        {
+          name: 'Ассистент продюссера',
+          icon: require ('~/assets/img/card/6.png'),
+        },
+      ],
     }
+  }
 }
 </script>
 <style lang="scss">
@@ -190,12 +178,17 @@ export default {
   padding-top: 36px;
   border-top: 2px solid rgba(0, 0, 0, 0.05);
 }
-.gamedev {
+.direction {
   width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+
+  .direction-menu {
+    width: 205px;
+  }
 }
-.main_gamedev {
-  width: 1200px;
+.main_direction {
+  // width: 1200px;
   height: 450px;
   padding: 48px 103px;
   margin-top: 48px;
@@ -206,20 +199,20 @@ export default {
 }
 .image_hend {
   position: absolute;
-  left: 775px;
+  right: 100px;
   top: 48px;
   border-radius: 12px;
 }
-.title_gamedev {
+.title_direction {
   margin-top: 48px;
-  width: 500px;
-  white-space: nowrap; 
-  overflow: hidden; 
+  max-width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 
 }
-.text_main-gamedev {
-  width: 424px;
+.text_main-direction {
+  max-width: 424px;
   height: 75px;
   margin-top: 24px;
   font-family: Rubik, sans-serif;
@@ -228,33 +221,30 @@ export default {
   font-size: 16px;
   line-height: 25px;
   color: rgba(255, 255, 255, 0.7);
-  overflow: hidden; 
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 .informers {
-  width: 442px;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
   height: 81px;
-  margin-top: 100px;
-  margin-left: -103px;
-  padding: 21px 110px 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 12px;
-  background: #F5F7F7;
 }
-.line_gamedev-informers {
+.line_direction-informers {
   width: 1px;
   height: 24px;
   background: rgba(0, 0, 0, 0.12);
 }
-.salary_gamedev {
+.salary_direction {
   height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.specialties_gamedev {
+.specialties_direction {
   height: 44px;
   display: flex;
   flex-direction: column;
@@ -278,12 +268,14 @@ export default {
   line-height: 21px;
   color: #1E2228;
 }
-.container_gamedev {
+.container_direction {
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
 }
 .basic_container {
-  width: 925px;
+  max-width: 100%;
 }
 .text_production {
   margin-top: 7px;
@@ -295,14 +287,14 @@ export default {
   color: #79829A;
 }
 .items_production {
-  width: 925px;
+  max-width: 100%;
   margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-row-gap: 34px;
+  grid-row-gap: 29px;
+  grid-column-gap: 29px;
 }
 .number_production {
-  width: 114px;
   height: 29px;
   display: flex;
   align-items: center;
@@ -312,6 +304,7 @@ export default {
   border-radius: 48px;
 }
 .number_text {
+  padding: 0 12px;
   font-family: Rubik, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -319,15 +312,46 @@ export default {
   line-height: 17px;
   color: #1E2228;
 }
-.production_gamedev {
+.production_direction {
   margin-bottom: 64px;
 }
-.menu_gamedev {
+.menu_direction {
   position: sticky;
   top: 48px;
 }
 .subscription {
   margin-bottom: 129px;
   justify-self: flex-start;
+}
+
+.subtitle {
+  font-family: Jost, sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  &._offset {
+    padding-left: 8px;
+  }
+
+  &._small {
+    font-size: 24px;
+    line-height: 35px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container_direction {
+    justify-content: center;
+  }
+
+  .direction-menu {
+    display: none;
+  }
 }
 </style>

@@ -5,10 +5,10 @@
 </template>
 <script>
 export default {
-  
+
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .title {
   font-family: Jost, sans-serif;
   font-style: normal;
