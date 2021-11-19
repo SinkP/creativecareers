@@ -105,7 +105,7 @@ export default {
   line-height: 14px;
   letter-spacing: 0.04em;
   text-align: left;
-  border-radius: 8px;
+  border-radius: 5px;
 
   ::v-deep {
     .v-btn__content {
@@ -145,6 +145,7 @@ export default {
   text-overflow: ellipsis;
 }
 .link_agreement {
+  text-decoration: underline;
   color: #79829A;
 }
 </style>

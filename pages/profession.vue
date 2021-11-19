@@ -263,10 +263,6 @@ export default {
       ],
       specification: [
         {
-          title: 'Геймдизайнер',
-          description: 'Gamedev',
-        },
-        {
           title: 'Уровень сложности',
           description: 'Для специалистов',
           marked: true,

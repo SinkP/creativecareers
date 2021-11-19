@@ -41,6 +41,7 @@ export default {
   width: 1201px;
   max-width: 100%;
   margin: 0 auto;
+  margin-top:auto;
   position: relative;
   display: flex;
   flex-direction: row;

@@ -8,7 +8,7 @@
             <h2 class="logo-alpha__text">alpha</h2>
           </div>
         </div>
-        <div class="container_input">
+        <div v-if="false" class="container_input">
           <v-text-field
             label="Поиск по индустриям и профессиям"
             solo
@@ -18,11 +18,8 @@
         </div>
       </div>
       <div class="header__container header__container--right">
-        <a href="#" class="header__link">
+        <a v-if="false" href="#" class="header__link">
           Индустрии
-        </a>
-        <a href="#" class="header__link">
-          Контакты
         </a>
         <DAboutUs class="aboutus"/>
       </div>

@@ -49,7 +49,6 @@ export default {
   border-top-left-radius: 0;
 
   &._reverse {
-    background: #F5F6F7;
     .title {
       font-family: Jost, sans-serif;
       font-style: normal;
