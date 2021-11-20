@@ -27,6 +27,7 @@ export default {
   flex-direction: column;
   .content {
     flex: 1 0 auto;
+    max-width: 100%;
   }
   .footer {
     flex-shrink: 0;

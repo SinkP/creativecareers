@@ -1,0 +1,60 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+@font-face {
+    font-family: Geometric;
+    src: url('~/assets/fonts/Geometric.ttf');
+}
+@font-face {
+    font-family: OpenSans;
+    src: url('~/assets/fonts/OpenSans.ttf');
+}
+@font-face {
+    font-family: Jost;
+    src: url('~/assets/fonts/Jost.ttf');
+}
+@font-face {
+    font-family: Rubik;
+    src: url('~/assets/fonts/Rubik.ttf');
+}
+@font-face {
+  font-family: Lato;
+  src: url('~/assets/fonts/Lato.ttf');
+}
+body {
+  height: 100vh;
+}
+.d-container {
+  width: 100%;
+  max-width: 892px;
+  margin-top: 24px;
+  padding: 24px;
+  background: #FFF;
+  border-radius: 12px;
+  &._big {
+    max-width: 1200px;
+  }
+}
+.text {
+  max-width: 100%;
+  margin-top: 24px;
+  font-family: Rubik, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+
+  &._short {
+    padding-right: 79px;
+  }
+
+  &._main {
+    margin-top: 12px;
+  }
+}

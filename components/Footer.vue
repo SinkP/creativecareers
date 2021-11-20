@@ -93,4 +93,23 @@ export default {
     padding-top: 36px;
   }
 }
+
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column-reverse;
+    ::v-deep {
+      .logo {
+        margin-top: 6px;
+      }
+    }
+  }
+  .footer__link-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__link {
+    margin-bottom: 14px;
+    margin-left: 0;
+  }
+}
 </style>

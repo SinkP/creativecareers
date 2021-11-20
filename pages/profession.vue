@@ -18,7 +18,7 @@
     <div class="content-wrapper">
       <div class="content">
         <DSpecification :cols="specification" />
-        <div class="container">
+        <div class="d-container">
           <h2 class="subtitle">
             Описание
           </h2>
@@ -30,7 +30,7 @@
             Обязанности геймдизайнера могут различаться в зависимости от размеров и бюджета компаний. В крупных студиях геймдизайном могут заниматься системные дизайнеры, дизайнеры уровней, дизайнеры игрового процесса, контент-дизайнеры. В более общем понимании, первостепенные задачи геймдизайнера – создание и расчет систем баланса, внутриигровой экономики, статистики, проектирование механики и создание прототипов игры.
           </p>
         </div>
-        <div class="container">
+        <div class="d-container">
           <h2 class="subtitle">
             Чем занимается геймдизайнер?
           </h2>
@@ -47,8 +47,8 @@
             Геймдизайнер в команде должен давать четкую структурированную информацию коллегам из разных департаментов: программистам, художникам, тестировщикам. Механика игры может влиять на характер и настроение игры наравне с художественной составляющей, поэтому геймдизайнеру важно точно описывать игровые процессы и объекты. С помощью прототипирования, геймдизайнер сообщает информацию программистам. Прототип – это примитивная версия планируемой игры, которая включает в себя основу механики, элементы будущего геймплея и ключевых сюжетных поворотов. Прототипы используются геймдизайнером и на ранних стадиях тестирования, особенно если проект создается по принципу TDD (test-driven development) – разработка через тестирование.
           </p>
         </div>
-        <div class="container ads_big"></div>
-        <div class="container">
+        <div class="d-container ads_big"></div>
+        <div class="d-container">
           <h2 class="subtitle">
             Что должен знать и уметь геймдизайнер
           </h2>
@@ -88,7 +88,7 @@
             />
           </div>
         </div>
-        <div class="container">
+        <div class="d-container">
           <h2 class="subtitle _offset">
             С кем работает геймдизайнер?
           </h2>
@@ -103,7 +103,7 @@
             />
           </div>
         </div>
-        <div class="container _advice">
+        <div class="d-container _advice">
           <h2 class="subtitle">
             Советы по поиску работы
           </h2>
@@ -117,7 +117,7 @@
             class="content_advice"
           />
         </div>
-        <div class="container">
+        <div class="d-container">
           <h2 class="subtitle _offset">
             Известные представители профессии
           </h2>
@@ -453,6 +453,7 @@ export default {
   height: 250px;
   margin-top: 24px;
   margin-bottom: 24px;
+  object-fit: cover;
 }
 .skills {
   width: 100%;
@@ -571,7 +572,7 @@ export default {
   }
   .content-wrapper {
     max-width: 100%;
-    .container {
+    .d-container {
       max-width: 100%;
     }
   }
@@ -582,6 +583,12 @@ export default {
       width: 100%;
       margin-bottom: 20px;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .profession {
+    overflow: hidden;
   }
 }
 </style>

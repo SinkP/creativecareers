@@ -30,7 +30,6 @@ export default {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  // word-spacing: 9px;
 }
 .page {
   color: #9F9CE9;
@@ -46,6 +45,17 @@ export default {
     color: #fff;
     &::after {
       content: '';
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .page {
+    letter-spacing: 0.5px;
+    line-height: 1.35;
+
+    &::after {
+      margin: 0 4px;
     }
   }
 }

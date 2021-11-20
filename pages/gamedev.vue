@@ -8,10 +8,7 @@
       <p class="text_main-direction">
         В современном мире создание видеоигр является одним из наиболее крупных сегментов индустрии развлечений.
       </p>
-      <div class="informers">
-        <DSpecification :cols="specification" :reverse="true" />
-      </div>
-      <img class="image_hend" src="~/assets/img/industry/hend.png">
+      <img class="image" src="~/assets/img/industry/hend.png">
     </div>
     <div class="container_direction">
       <div class="menu_direction_wrapper">
@@ -38,6 +35,7 @@
               v-for="cardItem of cards"
               :key="cardItem.name"
               :big="true"
+              :extra-big="$mq !== 'lg'"
               :name="cardItem.name"
               :icon="cardItem.icon"
             />
@@ -57,9 +55,10 @@
           </p>
           <div class="items_production">
             <DCard
-            v-for="cardItem of cards"
+              v-for="cardItem of cards"
               :key="cardItem.name"
-
+              :big="true"
+              :extra-big="$mq !== 'lg'"
               :name="cardItem.name"
               :icon="cardItem.icon"
             />
@@ -170,7 +169,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   background-color: #fff;
 }
@@ -197,7 +196,7 @@ export default {
   position: relative;
   background: linear-gradient(98deg, #1E41BD 0%, #4C34DC 100%);
 }
-.image_hend {
+.image {
   position: absolute;
   right: 100px;
   top: 48px;
@@ -352,6 +351,39 @@ export default {
 
   .direction-menu {
     display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .direction {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .image {
+    display: none;
+  }
+  .items_production {
+    grid-template-columns: 1fr;
+  }
+
+  .main_direction {
+    padding: 18px 16px;
+    margin: 26px 0;
+    height: 100%;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 52px;
+    max-width: 100%;
+    margin-top: 4px;
+  }
+
+  .text_main-direction {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 58px;
+    margin-top: 10px;
   }
 }
 </style>

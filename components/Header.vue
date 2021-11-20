@@ -130,4 +130,10 @@ export default {
     padding: 0 20px;
   }
 }
+
+@media (max-width: 1024px) {
+  .aboutus {
+    display: none;
+  }
+}
 </style>

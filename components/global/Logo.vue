@@ -1,5 +1,5 @@
 <template lang="html">
-  <nuxt-link to="/home">
+  <nuxt-link to="/">
     <h1 class="logo">
       CreativeCareers
     </h1>
@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style scoped lang="scss">

@@ -1,5 +1,9 @@
 <template lang="html">
-  <nuxt-link to="/" class="card" :class="big ? '_big' : ''">
+  <nuxt-link
+    to="/"
+    class="card"
+    :class="[big ? '_big' : '', extraBig ? '_extra-big' : '']"
+  >
     <img class="image" :src="(icon)">
     <div class="shadow" />
     <h3 class="name">
@@ -29,6 +33,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    extraBig: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -47,6 +55,10 @@ export default {
 
   &._big {
     min-width: 289px;
+  }
+
+  &._extra-big {
+    width: 100%;
   }
 }
 

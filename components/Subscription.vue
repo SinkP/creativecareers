@@ -1,15 +1,19 @@
 <template lang="html">
   <div class="subscription">
-
-    <h3 class="title_subscription">
-      <span class="title_modified">Подпишитесь</span> на рассылку новых профессий в каталоге
+    <h3 class="title">
+      <span class="_modified">Подпишитесь</span> на рассылку новых профессий в каталоге
     </h3>
-    <div class="right_block">
-      <div class="input">
+    <div class="form">
+      <div class="input-wrapper">
         <v-input
-          class="item_input"
+          class="input"
         >
-          <v-text-field flat solo background-color="rgba(0, 0, 0, 0)" label="Введите e-mail"></v-text-field>
+          <v-text-field
+            flat
+            solo
+            background-color="rgba(0, 0, 0, 0)"
+            label="Введите e-mail"
+          />
         </v-input>
         <v-btn
           elevation="0"
@@ -17,7 +21,9 @@
           height="41px"
           width="125px"
           color="#365DE7"
-        >Подписаться</v-btn>
+        >
+          Подписаться
+        </v-btn>
       </div>
       <div class="agreement">
         <v-checkbox
@@ -26,9 +32,11 @@
           class="checkbox"
         >
         </v-checkbox>
-        <p class="text_agreement">
-          Принимаю условия <nuxt-link to="/" class="link_agreement">соглашения</nuxt-link> и <nuxt-link to="/" class="link_agreement">политики конфиденциалььности</nuxt-link>
-        </p>
+        <span class="text-agreement">
+          Принимаю условия <nuxt-link to="/" class="link_agreement">соглашения</nuxt-link>
+          и
+          <nuxt-link to="/" class="link_agreement">политики конфиденциалььности</nuxt-link>
+        </span>
       </div>
     </div>
   </div>
@@ -52,7 +60,7 @@ export default {
   box-sizing: border-box;
   border-radius: 12px;
 }
-.title_subscription {
+.title {
   max-width: 321px;
   width: 100%;
   height: 60px;
@@ -65,11 +73,12 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.08px;
+
+  ._modified {
+    color: #365DE7;
+  }
 }
-.title_modified {
-  color: #365DE7;
-}
-.input {
+.input-wrapper {
   width: 360px;
   height: 49px;
   display: flex;
@@ -90,7 +99,7 @@ export default {
     }
   }
 }
-.item_input {
+.input {
   width: 200px;
   height: 49px;
   font-family: Rubik, sans-serif;
@@ -119,6 +128,7 @@ export default {
 .agreement {
   margin-top: 12px;
   display: flex;
+  max-width: 100%;
   position: relative;
   align-items: center;
   z-index: 2;
@@ -130,7 +140,12 @@ export default {
     }
   }
 }
-.text_agreement {
+
+.form {
+  max-width: 100%;
+}
+
+.text-agreement {
   margin-top: 2px;
   font-family: Rubik, sans-serif;
   font-size: 11px;
@@ -140,12 +155,44 @@ export default {
   letter-spacing: 0;
   text-align: left;
   color: #1E2228;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .link_agreement {
   text-decoration: underline;
   color: #79829A;
+}
+
+@media (max-width: 1024px) {
+  .subscription {
+    padding: 24px 15px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .agreement {
+    // display: none;
+    max-width: 100%;
+  }
+
+  .title {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .input {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
 }
 </style>
