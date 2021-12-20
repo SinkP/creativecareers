@@ -1,10 +1,10 @@
 <template lang="html">
-  <a href="#" class="badge">
+  <nuxt-link :to="to" :href="href ? href : to" class="badge">
     <img class="icon" :src="(icon)">
     <h3 class="title">
       {{ title }}
     </h3>
-  </a>
+  </nuxt-link>
 </template>
 <script>
 export default {
@@ -14,6 +14,14 @@ export default {
       default: '',
     },
     title: {
+      type: String,
+      default: '',
+    },
+    to: {
+      type: String,
+      default: '/',
+    },
+    href: {
       type: String,
       default: '',
     },

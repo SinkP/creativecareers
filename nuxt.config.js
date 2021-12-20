@@ -20,6 +20,7 @@ export default {
   ],
 
   plugins: [
+    '~/plugins/v-view',
   ],
 
   components: true,
@@ -34,7 +35,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-
+    'vue-scrollto/nuxt',
     '@nuxtjs/yandex-metrika',
     '@nuxtjs/google-adsense',
 
@@ -66,7 +67,10 @@ export default {
     id: 'G-XE8QZF9GNP',
   },
 
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL,
+    proxy: false,
+  },
 
   pwa: {
     manifest: {

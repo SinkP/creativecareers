@@ -10,7 +10,7 @@
           Узнай, какие знания и навыки тебе необходимы, чтобы попасть в GameDev
         </p>
       <DButton
-        :options="{ nuxt: true, to: '/gamedev' }"
+        :options="{ nuxt: true, to: '/industries' }"
         class="home__button"
       >
         Начать поиск
@@ -33,6 +33,20 @@ import DButton from '~/components/global/Button.vue'
 export default {
   components: {
     DButton,
+  },
+  head() {
+    return {
+      title: `Кем стать в игровой индустрии. Выбор профессии`,
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Как определиться с выбором, полное описание профессий со способами обучения',
+        }
+      ],
+    }
   }
 }
 </script>

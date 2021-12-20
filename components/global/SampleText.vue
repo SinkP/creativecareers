@@ -3,11 +3,11 @@
     <div class="container_title">
       <img class="image" :src="(icon)">
       <h3 class="name">
-        {{ name }}
+        {{ title }}
       </h3>
     </div>
     <p class="text">
-      {{ text }}
+      {{ description }}
     </p>
   </div>
 </template>
@@ -18,11 +18,11 @@ export default {
       type: String,
       default: '',
     },
-    name: {
+    title: {
       type: String,
       default: '',
     },
-    text: {
+    description: {
       type: String,
       default: '',
     },

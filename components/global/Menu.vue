@@ -2,10 +2,12 @@
   <div class="menu">
     <a
       v-for="(item, index) of list"
-      :key="item"
-      :href="item.href"
+      v-show="item.isShown"
+      :key="item.title"
+      v-scroll-to="item.el"
       :class="active === index ? '_active' : ''"
       class="link"
+      @click="$emit('chose', index)"
     >
       {{ item.title }}
     </a>
@@ -31,6 +33,9 @@ export default {
   padding: 14px;
   border-radius: 12px;
   background: #FFF;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 
 .link {
@@ -45,6 +50,7 @@ export default {
   line-height: 23px;
   color: #79829A;
   transition: 0.3s;
+  cursor: pointer;
 
   &._active {
     background: #F5F6F7;

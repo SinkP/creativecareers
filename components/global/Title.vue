@@ -13,7 +13,7 @@ export default {
   font-family: Jost, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 72px;
+  font-size: 68px;
   line-height: 70px;
   letter-spacing: -0.03em;
   color: #FFF;

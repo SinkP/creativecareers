@@ -1,13 +1,13 @@
 <template lang="html">
   <nuxt-link
-    to="/"
+    :to="to"
     class="card"
     :class="[big ? '_big' : '', extraBig ? '_extra-big' : '']"
   >
-    <img class="image" :src="(icon)">
+    <img class="image" :src="(picture)">
     <div class="shadow" />
-    <h3 class="name">
-      {{ name }}
+    <h3 class="title">
+      {{ title }}
     </h3>
     <p class="salary">
       {{ salary }}
@@ -17,7 +17,7 @@
 <script>
 export default {
   props: {
-    name: {
+    title: {
       type: String,
       default: '',
     },
@@ -25,7 +25,7 @@ export default {
       type: String,
       default: '',
     },
-    icon: {
+    image: {
       type: String,
       default: '',
     },
@@ -37,6 +37,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    to: {
+      type: String,
+      default: '/',
+    },
+  },
+  data() {
+    return {
+      picture: this.image,
+    };
   },
 }
 </script>
@@ -64,9 +73,10 @@ export default {
 
 .card:hover {
   margin-top: -5px;
+  margin-bottom: 5px;
 }
 
-.name {
+.title {
   font-family: Jost, sans-serif;
   font-size: 20px;
   max-width: 100%;

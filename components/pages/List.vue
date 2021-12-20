@@ -1,66 +1,51 @@
 <template lang="html">
   <div class="direction">
     <div class="main_direction">
-      <DNavigation :links="links" />
+      <DNavigation :links="navigation" />
       <DTitle class="title_direction">
-        Gamedev
+        {{ title }}
       </DTitle>
       <p class="text_main-direction">
-        В современном мире создание видеоигр является одним из наиболее крупных сегментов индустрии развлечений.
+        {{ description }}
       </p>
       <img class="image" src="~/assets/img/industry/hend.png">
     </div>
     <div class="container_direction">
       <div class="menu_direction_wrapper">
-        <DMenu class="direction-menu"
-          :active="0"
-          :list="menuLinks"
+        <DMenu
+          class="direction-menu"
+          :active="activeAnchor"
+          :list="getAnchorLinks"
         />
       </div>
       <div class="basic_container">
-        <div class="production_direction">
-          <h3 class="subtitle">
-            Production
-            <div class="number_production">
-              <p class="number_text">
-                6 профессий
+        <div
+          v-for="(department, index) of departments"
+          :id="replaceSpaces(department.title)"
+          :key="department.title"
+          v-view="viewHandler.bind(this, ...index)"
+          class="department"
+        >
+          <h3 class="department-title">
+            {{ department.title }}
+            <div class="department-count">
+              <p>
+                {{ department.cards.length }} {{ getProfessionCase(department.cards.length) }}
               </p>
             </div>
           </h3>
-          <p class="text_production">
-            Организуют процессы создания игры и следят за тем, чтобы игра была сделана в указанные сроки и бюджет
+          <p class="department-description">
+            {{ department.description }}
           </p>
-          <div class="items_production">
+          <div class="departments-cards">
             <DCard
-              v-for="cardItem of cards"
-              :key="cardItem.name"
+              v-for="card of department.cards"
+              :key="card.name"
               :big="true"
               :extra-big="$mq !== 'lg'"
-              :name="cardItem.name"
-              :icon="cardItem.icon"
-            />
-          </div>
-        </div>
-        <div class="production_direction">
-          <h3 class="subtitle">
-            Design
-            <div class="number_production">
-              <p class="number_text">
-                6 профессий
-              </p>
-            </div>
-          </h3>
-          <p class="text_production">
-            Придумывают концепт, сюжет и атмосферу игры, её внешний вид и то, как люди будут в неё играть
-          </p>
-          <div class="items_production">
-            <DCard
-              v-for="cardItem of cards"
-              :key="cardItem.name"
-              :big="true"
-              :extra-big="$mq !== 'lg'"
-              :name="cardItem.name"
-              :icon="cardItem.icon"
+              :title="card.title"
+              :to="`industries/${card.id}`"
+              :image="card.image ? card.image : getRandomPicture()"
             />
           </div>
         </div>
@@ -77,7 +62,6 @@ import DCard from '~/components/global/Card.vue'
 import DMenu from '~/components/global/Menu.vue'
 import DSubscription from '~/components/Subscription.vue'
 import DNavigation from '~/components/global/Navigation.vue'
-import DSpecification from '~/components/profession/Specification.vue'
 export default {
   components: {
     DTitle,
@@ -85,88 +69,67 @@ export default {
     DMenu,
     DSubscription,
     DNavigation,
-    DSpecification,
+  },
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    description: {
+      type: String,
+      default: '',
+    },
+    navigation: {
+      type: Array,
+      default: () => [],
+    },
+    departments: {
+      type: Array,
+      default: () => [],
+    }
   },
   data () {
     return {
-      links: [
-        {
-          title: 'Главная',
-          to: '/',
-        },
-        {
-          title: 'Индустрии',
-          to: '/',
-        },
-        {
-          title: 'direction',
-          to: '/',
-        },
-        {
-          title: 'Геймдизайнер',
-          to: '/',
-        },
-      ],
-      specification: [
-        {
-          title: 'Геймдизайнер',
-          description: 'Gamedev',
-        },
-        {
-          title: 'Также известен как',
-          description: 'Game Design, Game Developer',
-        },
-      ],
-      menuLinks: [
-        {
-          title: 'Начало',
-          href: '#fff',
-        },
-        {
-          title: 'Начало',
-          href: '#fff',
-        },
-        {
-          title: 'Начало',
-          href: '#fff',
-        },
-        {
-          title: 'Начало',
-          href: '#fff',
-        },
-        {
-          title: 'Начало',
-          href: '#fff',
-        },
-      ],
-      cards: [
-        {
-          name: 'Геймдизайнер',
-          icon: require ('~/assets/img/card/1.png'),
-        },
-        {
-          name: 'Продюссер',
-          icon: require ('~/assets/img/card/2.png'),
-        },
-        {
-          name: 'Ассистент продюссера',
-          icon: require ('~/assets/img/card/3.png'),
-        },
-        {
-          name: 'Комьюнити менеджер',
-          icon: require ('~/assets/img/card/4.png'),
-        },
-        {
-          name: 'Маркетолог',
-          icon: require ('~/assets/img/card/5.png'),
-        },
-        {
-          name: 'Ассистент продюссера',
-          icon: require ('~/assets/img/card/6.png'),
-        },
-      ],
+      activeAnchor: 0,
     }
-  }
+  },
+  computed: {
+    getAnchorLinks() {
+      const result = [];
+      for (let index = 0; index < this.departments.length; index++) {
+        const department = this.departments[index];
+        result.push({
+          title: department.title,
+          el: `#${this.replaceSpaces(department.title)}`,
+          isShown: true,
+        });
+      }
+      return result;
+    },
+  },
+  methods: {
+    replaceSpaces(string) {
+      if (string && string.replaceAll) {
+        return string.replaceAll(' ', '');
+      }
+    },
+    viewHandler(index, event) {
+      if (event.type === 'enter') {
+        this.activeAnchor = index;
+      }
+    },
+    getRandomPicture() {
+      return require (`~/assets/img/card/${Math.floor(Math.random() * 6) + 1}.png`)
+    },
+    getProfessionCase(count) {
+      if (count === 1 || count === 21) {
+        return 'профессия';
+      } else if (count > 1 && count < 5) {
+        return 'профессии';
+      }
+      return 'професий';
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -269,14 +232,13 @@ export default {
 }
 .container_direction {
   max-width: 100%;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
 }
 .basic_container {
   max-width: 100%;
 }
-.text_production {
+.department-description {
   margin-top: 7px;
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -285,7 +247,7 @@ export default {
   line-height: 17px;
   color: #79829A;
 }
-.items_production {
+.departments-cards {
   max-width: 100%;
   margin-top: 24px;
   display: grid;
@@ -293,7 +255,7 @@ export default {
   grid-row-gap: 29px;
   grid-column-gap: 29px;
 }
-.number_production {
+.department-count {
   height: 29px;
   display: flex;
   align-items: center;
@@ -301,17 +263,18 @@ export default {
   margin-left: 7px;
   background: #E6E9EC;
   border-radius: 48px;
+
+  p {
+    padding: 0 12px;
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1E2228;
+  }
 }
-.number_text {
-  padding: 0 12px;
-  font-family: Rubik, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  color: #1E2228;
-}
-.production_direction {
+.department {
   margin-bottom: 64px;
 }
 .menu_direction {
@@ -323,7 +286,7 @@ export default {
   justify-self: flex-start;
 }
 
-.subtitle {
+.department-title {
   font-family: Jost, sans-serif;
   font-size: 28px;
   font-style: normal;
@@ -362,7 +325,7 @@ export default {
   .image {
     display: none;
   }
-  .items_production {
+  .departments-cards {
     grid-template-columns: 1fr;
   }
 
@@ -372,12 +335,12 @@ export default {
     height: 100%;
   }
 
-  .title {
-    font-size: 36px;
-    line-height: 52px;
-    max-width: 100%;
-    margin-top: 4px;
-  }
+  // .sy {
+  //   font-size: 36px;
+  //   line-height: 52px;
+  //   max-width: 100%;
+  //   margin-top: 4px;
+  // }
 
   .text_main-direction {
     font-size: 12px;
