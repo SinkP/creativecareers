@@ -353,7 +353,6 @@ export default {
           content: `${this.getData.description}`,
         }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   }
 }

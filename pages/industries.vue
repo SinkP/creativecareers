@@ -28,6 +28,9 @@ export default {
       ],
     };
   },
+  async mounted() {
+    await this.$store.dispatch('FETCH_CAREER_CARDS');
+  },
   computed: {
     departments() {
       const result = [];
