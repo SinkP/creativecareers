@@ -5,7 +5,7 @@
       :key="col.title"
       class="cell"
     >
-      <h4 class="title">
+      <h4 class="d-title">
         {{ col.title }}
       </h4>
       <h5 class="description">
@@ -48,14 +48,38 @@ export default {
   border-radius: 12px;
   border-top-left-radius: 0;
 
+  .description {
+    display: flex;
+    align-items: center;
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: normal;
+
+    .marked {
+      margin-left: 4px;
+    }
+  }
+
+  .d-title {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
   &._reverse {
-    .title {
+    .d-title {
       font-family: Jost, sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 11px;
       line-height: 16px;
-      letter-spacing: 0.04em;
+      letter-spacing: .04em;
       text-transform: uppercase;
       color: #79829A;
     }
@@ -80,38 +104,30 @@ export default {
     &::after {
       position: absolute;
       right: 0;
-      content: '';
+      content: "";
       width: 1px;
       height: 32px;
       background: #E3E5EA;
       border-radius: 32px;
     }
   }
-  .title {
-    font-family: Rubik, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .description {
-    display: flex;
-    align-items: center;
-    font-family: Rubik, sans-serif;
-    font-style: normal;
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: normal;
-
-    .marked {
-      margin-left: 4px;
-    }
-  }
 
   .cell:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@include mobile {
+  .specification {
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+    border-top-left-radius: 12px;
+  }
+
+  .cell {
     &::after {
       display: none;
     }

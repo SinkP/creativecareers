@@ -23,9 +23,9 @@ export default {
     active: {
       type: Number,
       default: 0,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
 .menu {
@@ -35,7 +35,7 @@ export default {
   background: #FFF;
   position: -webkit-sticky;
   position: sticky;
-  top: 20px;
+  top: 70px;
 }
 
 .link {
@@ -49,7 +49,7 @@ export default {
   font-size: 16px;
   line-height: 23px;
   color: #79829A;
-  transition: 0.3s;
+  transition: .3s;
   cursor: pointer;
 
   &._active {
@@ -60,6 +60,26 @@ export default {
 
   &:hover {
     background: #F5F6F7;
+  }
+}
+
+@include mobile {
+  .menu {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .link {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+
+    &._active {
+      background: inherit;
+    }
   }
 }
 </style>

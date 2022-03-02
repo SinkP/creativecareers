@@ -31,12 +31,13 @@ export default {
   font-size: 14px;
   line-height: 20px;
 }
+
 .page {
   color: #9F9CE9;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
 
   &::after {
-    content: '/';
+    content: "/";
     margin: 0 14px;
     font-weight: 100;
   }
@@ -44,14 +45,14 @@ export default {
   &:last-child {
     color: #fff;
     &::after {
-      content: '';
+      content: "";
     }
   }
 }
 
-@media (max-width: 1024px) {
+@include mobile {
   .page {
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     line-height: 1.35;
 
     &::after {

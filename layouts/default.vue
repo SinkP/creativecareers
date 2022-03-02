@@ -1,21 +1,27 @@
 <template lang="html">
-  <div class="main-layout">
-    <DHeader  />
-    <div class="content">
-      <Nuxt  />
+  <v-app>
+    <div class="main-layout">
+      <d-header v-if="$mq !== 'sm'" />
+      <d-mobile-header v-if="$mq === 'sm'" />
+      <div class="content">
+        <nuxt />
+      </div>
+      <d-footer class="footer" />
     </div>
-    <DFooter class="footer" />
-  </div>
+  </v-app>
 </template>
 <script>
-import DHeader from '~/components/Header.vue'
-import DFooter from '~/components/Footer.vue'
+import DHeader from '~/components/Header.vue';
+import DMobileHeader from '~/components/MobileHeader.vue';
+import DFooter from '~/components/Footer.vue';
+
 export default {
   components: {
     DHeader,
-    DFooter
-  }
-}
+    DFooter,
+    DMobileHeader,
+  },
+};
 </script>
 <style lang="scss">
 .main-layout {
@@ -33,5 +39,10 @@ export default {
     flex-shrink: 0;
   }
 }
-</style>
 
+@include mobile {
+  .content {
+    margin-top: 24px;
+  }
+}
+</style>

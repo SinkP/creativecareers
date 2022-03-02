@@ -1,0 +1,51 @@
+// @mixin absolute-centered {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   margin: auto;
+// }
+
+// @mixin placeholder {
+
+//   &::-webkit-input-placeholder {
+//     @content;
+//   }
+
+//   &::-moz-placeholder {
+//     @content;
+//   }
+
+//   &:-moz-placeholder {
+//     @content;
+//   }
+
+//   &:-ms-input-placeholder {
+//     @content;
+//   }
+// }
+
+@mixin mobile {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+
+// @mixin link-hover {
+//   margin-bottom: -2px;
+//   border-bottom: 1px solid transparent;
+//   cursor: pointer;
+//   transition: border-color .2s;
+
+//   &:hover {
+//     border-color: #000;
+//   }
+// }

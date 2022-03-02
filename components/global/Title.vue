@@ -1,5 +1,5 @@
 <template lang="html">
-  <h1 class="title">
+  <h1 class="d-title">
     <slot/>
   </h1>
 </template>
@@ -9,13 +9,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.title {
-  font-family: Jost, sans-serif;
+.d-title {
+  font-family: "Jost", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 68px;
   line-height: 70px;
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
   color: #FFF;
+}
+
+@include mobile {
+  .d-title {
+    font-size: 36px;
+    line-height: 52px;
+  }
 }
 </style>

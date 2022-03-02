@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="direction">
     <div class="main_direction">
-      <DNavigation :links="navigation" />
-      <DTitle class="title_direction">
+      <d-navigation :links="navigation" />
+      <d-title class="title_direction">
         {{ title }}
-      </DTitle>
+      </d-title>
       <p class="text_main-direction">
         {{ description }}
       </p>
@@ -12,7 +12,7 @@
     </div>
     <div class="container_direction">
       <div class="menu_direction_wrapper">
-        <DMenu
+        <d-menu
           class="direction-menu"
           :active="activeAnchor"
           :list="getAnchorLinks"
@@ -38,7 +38,7 @@
             {{ department.description }}
           </p>
           <div class="departments-cards">
-            <DCard
+            <d-card
               v-for="card of department.cards"
               :key="card.name"
               :big="true"
@@ -49,7 +49,7 @@
             />
           </div>
         </div>
-        <DSubscription
+        <d-subscription
           class="subscription"
         />
       </div>
@@ -57,11 +57,12 @@
   </div>
 </template>
 <script>
-import DTitle from '~/components/global/Title.vue'
-import DCard from '~/components/global/Card.vue'
-import DMenu from '~/components/global/Menu.vue'
-import DSubscription from '~/components/Subscription.vue'
-import DNavigation from '~/components/global/Navigation.vue'
+import DTitle from '~/components/global/Title.vue';
+import DCard from '~/components/global/Card.vue';
+import DMenu from '~/components/global/Menu.vue';
+import DSubscription from '~/components/Subscription.vue';
+import DNavigation from '~/components/global/Navigation.vue';
+
 export default {
   components: {
     DTitle,
@@ -86,17 +87,17 @@ export default {
     departments: {
       type: Array,
       default: () => [],
-    }
+    },
   },
-  data () {
+  data() {
     return {
       activeAnchor: 0,
-    }
+    };
   },
   computed: {
     getAnchorLinks() {
       const result = [];
-      for (let index = 0; index < this.departments.length; index++) {
+      for (let index = 0; index < this.departments.length; index += 1) {
         const department = this.departments[index];
         result.push({
           title: department.title,
@@ -112,6 +113,7 @@ export default {
       if (string && string.replaceAll) {
         return string.replaceAll(' ', '');
       }
+      return '';
     },
     viewHandler(index, event) {
       if (event.type === 'enter') {
@@ -119,36 +121,39 @@ export default {
       }
     },
     getRandomPicture() {
-      return require (`~/assets/img/card/${Math.floor(Math.random() * 6) + 1}.png`)
+      return require(`~/assets/img/card/${Math.floor(Math.random() * 6) + 1}.png`);
     },
     getProfessionCase(count) {
       if (count === 1 || count === 21) {
         return 'профессия';
-      } else if (count > 1 && count < 5) {
+      } if (count > 1 && count < 5) {
         return 'профессии';
       }
       return 'професий';
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 .header {
   background-color: #fff;
 }
+
 .footer {
   padding-top: 36px;
-  border-top: 2px solid rgba(0, 0, 0, 0.05);
+  border-top: 2px solid rgba(0, 0, 0, .05);
 }
+
 .direction {
   width: 1200px;
   max-width: 100%;
   margin: 0 auto;
-
-  .direction-menu {
-    width: 205px;
-  }
 }
+
+.direction-menu {
+  width: 205px;
+}
+
 .main_direction {
   // width: 1200px;
   height: 450px;
@@ -159,20 +164,22 @@ export default {
   position: relative;
   background: linear-gradient(98deg, #1E41BD 0%, #4C34DC 100%);
 }
+
 .image {
   position: absolute;
   right: 100px;
   top: 48px;
   border-radius: 12px;
 }
+
 .title_direction {
   margin-top: 48px;
   max-width: 75%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
+
 .text_main-direction {
   max-width: 424px;
   height: 75px;
@@ -182,10 +189,11 @@ export default {
   font-weight: normal;
   font-size: 16px;
   line-height: 25px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, .7);
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .informers {
   position: absolute;
   bottom: -30px;
@@ -195,33 +203,38 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+
 .line_direction-informers {
   width: 1px;
   height: 24px;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, .12);
 }
+
 .salary_direction {
   height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .specialties_direction {
   height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .text_informers {
   font-family: Jost, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 16px;
-  letter-spacing: 0.04em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   color: #79829A;
 }
+
 .numbers_informers {
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -230,14 +243,17 @@ export default {
   line-height: 21px;
   color: #1E2228;
 }
+
 .container_direction {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .basic_container {
   max-width: 100%;
 }
+
 .department-description {
   margin-top: 7px;
   font-family: Rubik, sans-serif;
@@ -247,6 +263,7 @@ export default {
   line-height: 17px;
   color: #79829A;
 }
+
 .departments-cards {
   max-width: 100%;
   margin-top: 24px;
@@ -255,6 +272,7 @@ export default {
   grid-row-gap: 29px;
   grid-column-gap: 29px;
 }
+
 .department-count {
   height: 29px;
   display: flex;
@@ -274,13 +292,16 @@ export default {
     color: #1E2228;
   }
 }
+
 .department {
   margin-bottom: 64px;
 }
+
 .menu_direction {
   position: sticky;
   top: 48px;
 }
+
 .subscription {
   margin-bottom: 129px;
   justify-self: flex-start;
@@ -311,42 +332,47 @@ export default {
   .container_direction {
     justify-content: center;
   }
-
-  .direction-menu {
-    display: none;
-  }
 }
 
 @media (max-width: 1024px) {
+  .container_direction {
+    flex-direction: column;
+  }
+
   .direction {
     padding: 0 15px;
     box-sizing: border-box;
   }
+
+  .direction-menu {
+    margin-bottom: 16px;
+  }
+
   .image {
     display: none;
   }
+
   .departments-cards {
     grid-template-columns: 1fr;
   }
 
   .main_direction {
-    padding: 18px 16px;
+    padding: 18px;
     margin: 26px 0;
     height: 100%;
   }
-
-  // .sy {
-  //   font-size: 36px;
-  //   line-height: 52px;
-  //   max-width: 100%;
-  //   margin-top: 4px;
-  // }
 
   .text_main-direction {
     font-size: 12px;
     line-height: 20px;
     margin-bottom: 58px;
     margin-top: 10px;
+  }
+
+  .title_direction {
+    font-size: 36px;
+    line-height: 52px;
+    margin-top: 4px;
   }
 }
 </style>

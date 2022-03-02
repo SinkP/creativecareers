@@ -34,6 +34,9 @@ export default {
   components: {
     DButton,
   },
+  middleware: [
+    'mainPage',
+  ],
   head() {
     return {
       title: `Кем стать в игровой индустрии. Выбор профессии`,
@@ -67,6 +70,7 @@ export default {
   margin-top: 149px;
   margin-bottom: 149px;
 }
+
 .home__title {
   max-width: 578px;
   max-height: 210px;
@@ -75,15 +79,17 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: 70px;
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .home__title--undefault {
   font-weight: 700;
   color: #365DE7;
 }
+
 .home__text {
   margin-top: 24px;
   font-family: Rubik, sans-serif;
@@ -94,9 +100,11 @@ export default {
   letter-spacing: 0;
   text-align: left;
 }
+
 .home__button {
   margin-top: 32px;
 }
+
 .home-image {
   position: absolute;
   width: 947px;
@@ -115,7 +123,8 @@ export default {
     left: 300px;
   }
 }
-@media (max-width: 1024px) {
+
+@include mobile {
   .home {
     padding-left: 0;
 
@@ -128,7 +137,7 @@ export default {
     padding-left: 15px;
     padding-right: 15px;
     height: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     margin-top: 32px;
   }
   .home__title {

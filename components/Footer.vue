@@ -4,7 +4,7 @@
       <div class="footer__logo-container">
         <DLogo />
       </div>
-      <DAboutUs class="aboutus"/>
+      <DSocials class="socials"/>
     </div>
     <div class="footer__container">
     <div class="footer__link-container">
@@ -28,11 +28,11 @@
 </template>
 <script>
 import DLogo from '~/components/global/Logo.vue'
-import DAboutUs from '~/components/global/AboutUs.vue'
+import DSocials from '~/components/global/Socials.vue'
 export default {
   components: {
     DLogo,
-    DAboutUs
+    DSocials
   }
 }
 </script>
@@ -41,14 +41,15 @@ export default {
   width: 1201px;
   max-width: 100%;
   margin: 0 auto;
-  margin-top:auto;
+  margin-top: auto;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, .05);
   padding-top: 36px;
 }
+
 .footer__link {
   height: 23px;
   margin-left: 36px;
@@ -59,22 +60,28 @@ export default {
   line-height: 23.12px;
   color: #1E2228;
 }
+
 .footer__link:first-child {
   margin-left: 0;
 }
+
 .footer__link:hover {
   color: #365DE7;
 }
-.aboutus {
+
+.socials {
   margin-top: 18px;
 }
+
 .footer_designed-by {
   margin-top: 24px;
   display: flex;
 }
+
 .footer__year {
   margin-right: 32px;
 }
+
 .footer__text {
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -83,11 +90,13 @@ export default {
   line-height: 17px;
   color: #79829A;
 }
+
 .flatonica {
   margin-left: 4px;
 }
 
 @media (max-width: 1200px) {
+
   .footer {
     padding: 0 20px;
     padding-top: 36px;
@@ -95,18 +104,23 @@ export default {
 }
 
 @media (max-width: 1024px) {
+
   .footer {
     flex-direction: column-reverse;
+
     ::v-deep {
+
       .logo {
         margin-top: 6px;
       }
     }
   }
+
   .footer__link-container {
     display: flex;
     flex-direction: column;
   }
+
   .footer__link {
     margin-bottom: 14px;
     margin-left: 0;

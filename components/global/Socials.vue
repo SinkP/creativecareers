@@ -5,22 +5,17 @@
       :key="soc.href"
       :color="index === hover ? soc.color : ''"
       rounded
-      flat
       fab
       :href="soc.href"
       class="au__button"
+      width="32px"
+      height="32px"
       @mouseover="setHover(index)"
       @mouseout="setHover(-1)"
     >
       <img
-        v-show="index === hover"
-        class="au__button-logo au__button-logo--instagram"
-        :src="require(`~/assets/img/global/${soc.name}-hover.svg`)"
-      >
-      <img
-        v-show="index !== hover"
-        class="au__button-logo au__button-logo--instagram"
-        :src="require(`~/assets/img/global/${soc.name}.svg`)"
+        class="au__button-logo"
+        :src="getPath(index, soc.name)"
       >
     </v-btn>
   </div>
@@ -53,14 +48,21 @@ export default {
     setHover(index) {
       this.hover = index;
     },
+    getPath(index, name) {
+      if (index === this.hover) {
+        return require(`@/assets/img/global/${name}-hover.svg`);
+      }
+      return require(`@/assets/img/global/${name}.svg`);
+    },
   },
-}
+};
 </script>
 <style scoped lang="scss">
 .au {
   height: 32px;
   display: flex;
 }
+
 .au__button {
   width: 32px;
   height: 32px;
@@ -70,7 +72,8 @@ export default {
   justify-content: center;
   border-radius: 50%;
   background: #FFF;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 0 12px rgba(0, 0, 0, .09) !important;
+  transition: .3s;
 
   &:first-child {
     margin-left: 0;
@@ -80,10 +83,8 @@ export default {
     margin-right: 0;
   }
 }
+
 .au__button-logo {
   width: 18px;
-}
-.au__button-logo--instagram {
-  width: 16px;
 }
 </style>

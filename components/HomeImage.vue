@@ -5,16 +5,13 @@
     <img class="image-1" src="~/assets/img/home_image/1.svg">
   </div>
 </template>
-<script>
-export default {
 
-}
-</script>
 <style scoped lang="scss">
 .image {
   width: 565.85px;
   height: 502.46px;
 }
+
 .image-1 {
   position: absolute;
   width: 284.98px;
@@ -22,18 +19,20 @@ export default {
   left: 1039.12px;
   top: 229px;
 }
+
 .image-2 {
   position: absolute;
-width: 258.89px;
-height: 313.11px;
-left: 818.22px;
-top: 222.73px;
+  width: 258.89px;
+  height: 313.11px;
+  left: 818.22px;
+  top: 222.73px;
 }
+
 .image-3 {
   position: absolute;
-width: 258.89px;
-height: 313.11px;
-left: 1147.55px;
-top: 183px;
+  width: 258.89px;
+  height: 313.11px;
+  left: 1147.55px;
+  top: 183px;
 }
 </style>

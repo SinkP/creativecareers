@@ -3,7 +3,7 @@ export default async ({ store }) => {
   const departments = store.state.industries[0].departments;
   await store.dispatch('FETCH_DEPARTMENTS', `?id=${departments.join(',')}`);
   let cards = [];
-  for (let index = 0; index < store.state.departments.length; index++) {
+  for (let index = 0; index < store.state.departments.length; index += 1) {
     const department = store.state.departments[index];
     cards = cards.concat(department.career_cards);
   }

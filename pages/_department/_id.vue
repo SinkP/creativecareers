@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="profession">
     <div class="profession-main">
-      <DNavigation :links="links" />
-      <DTitle class="profession-title">
+      <d-navigation :links="links" />
+      <d-title class="profession-title">
         {{ getData.title }}
-      </DTitle>
+      </d-title>
       <p class="profession-subtitle">
         Как стать, что делать, что читать, с кем сравнивать, все ответы в одном месте
       </p>
@@ -17,8 +17,8 @@
     </div>
     <div class="content-wrapper">
       <div class="content">
-        <DSpecification v-if="getData.description" :cols="specification" />
-        <div class="d-container" id="description">
+        <d-specification v-if="getData.description" :cols="specification" />
+        <div id="description" class="d-container">
           <h2 class="subtitle">
             Описание
           </h2>
@@ -26,7 +26,10 @@
             {{ getData.description }}
           </p>
         </div>
-        <div v-if="getData.primary_occupation_info" class="d-container" id="primary_occupation_info">
+        <div
+          v-if="getData.primary_occupation_info" id="primary_occupation_info"
+          class="d-container"
+        >
           <h2 class="subtitle">
             Чем занимается {{ getData.title.toLowerCase() }}?
           </h2>
@@ -35,7 +38,10 @@
             {{ getData.primary_occupation_info }}
           </p>
         </div>
-        <div v-if="getData.education" class="d-container" id="education">
+        <div
+          v-if="getData.education" id="education"
+          class="d-container"
+        >
           <h2 class="subtitle">
             Образование
           </h2>
@@ -44,20 +50,23 @@
             {{ getData.education }}
           </p>
         </div>
-        <div class="d-container ads_big"></div>
+        <div class="d-container ads_big" />
         <div class="d-container">
-          <h2 class="subtitle" id="things_you_must_know">
+          <h2 id="things_you_must_know" class="subtitle">
             Что должен знать и уметь {{ getData.title.toLowerCase() }}
           </h2>
           <img class="image _big" src="~/assets/img/profession/dude.png">
           <p class="text _short">
             {{ getData.things_you_must_know }}
           </p>
-          <div v-if="getData.skills.length" class="skills" id="skills">
+          <div
+            v-if="getData.skills.length" id="skills"
+            class="skills"
+          >
             <h2 class="subtitle _small">
               Умения и навыки
             </h2>
-            <DText
+            <d-text
               v-for="skill of getData.skills"
               :key="skill.title"
 
@@ -67,11 +76,14 @@
               class="skills-content"
             />
           </div>
-          <div v-if="getData.knowledges.length" id="knowleages" class="tools">
+          <div
+            v-if="getData.knowledges.length" id="knowleages"
+            class="tools"
+          >
             <h2 class="subtitle _small">
               Знания и инстументы
             </h2>
-            <DText
+            <d-text
               v-for="knowledge of getData.knowledges"
               :key="knowledge.title"
 
@@ -82,7 +94,10 @@
             />
           </div>
         </div>
-        <div v-if="getData.how_to_become" id="begin" class="d-container">
+        <div
+          v-if="getData.how_to_become" id="begin"
+          class="d-container"
+        >
           <h2 class="subtitle">
             С чего начать?
           </h2>
@@ -91,12 +106,15 @@
             {{ getData.how_to_become }}
           </p>
         </div>
-        <div v-if="getCardsByIds(getData.works_with).length" id="workwith" class="d-container">
+        <div
+          v-if="getCardsByIds(getData.works_with).length" id="workwith"
+          class="d-container"
+        >
           <h2 class="subtitle _offset">
             С кем работает {{ getData.title.toLowerCase() }}?
           </h2>
           <div>
-            <DWorker
+            <d-worker
               v-for="worker of getCardsByIds(getData.works_with)"
               :key="worker.title"
 
@@ -107,11 +125,14 @@
             />
           </div>
         </div>
-        <div v-if="getData.job_search_advices.length" id="advices" class="d-container _advice">
+        <div
+          v-if="getData.job_search_advices.length" id="advices"
+          class="d-container _advice"
+        >
           <h2 class="subtitle">
             Советы по поиску работы
           </h2>
-          <DText
+          <d-text
             v-for="adviceItem of getData.job_search_advices"
             :key="adviceItem.title"
 
@@ -121,11 +142,14 @@
             class="content_advice"
           />
         </div>
-        <div v-if="getData.famous_personalities.length" id="famous" class="d-container">
+        <div
+          v-if="getData.famous_personalities.length" id="famous"
+          class="d-container _famous"
+        >
           <h2 class="subtitle _offset">
             Известные представители профессии
           </h2>
-          <DWorker
+          <d-worker
             v-for="personal of getData.famous_personalities"
             :key="personal.name"
             :icon="personal.portrait_link || require('~/assets/img/profession/humanIcon.svg')"
@@ -134,12 +158,15 @@
             class="worker_block"
           />
         </div>
-        <div v-if="getCardsByIds(getData.might_be_interesting).length" id="intresting" class="interesting">
+        <div
+          v-if="getCardsByIds(getData.might_be_interesting).length" id="intresting"
+          class="interesting"
+        >
           <h2 class="subtitle">
             Также может быть интересно
           </h2>
           <div class="cards">
-            <DCard
+            <d-card
               v-for="cardItem of getCardsByIds(getData.might_be_interesting)"
               :key="cardItem.name"
 
@@ -150,12 +177,18 @@
             />
           </div>
         </div>
-        <div v-if="getData.relevant_links.length" id="read" class="d-container read">
+        <div
+          v-if="getData.relevant_links.length" id="read"
+          class="d-container read"
+        >
           <h2 class="subtitle">
             Смотреть и читать
           </h2>
           <div class="links">
-            <a v-for="link of getData.relevant_links" :key="link.title" :href="link.link" class="link_read">
+            <a
+              v-for="link of getData.relevant_links" :key="link.title"
+              :href="link.link" class="link_read"
+            >
               <p class="link_text">
                 {{ link.title }}
               </p>
@@ -166,26 +199,26 @@
       </div>
       <div class="container_menu">
         <div class="sticky">
-          <DMenu class="menu"
+          <d-menu
+            class="menu"
             :active="active"
             :list="menuList"
             @chose="active = $event"
           />
-          <div class="ads_small"></div>
+          <div class="ads_small" />
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import DTitle from '~/components/global/Title.vue'
-import DMenu from '~/components/global/Menu.vue'
-import DText from '~/components/global/SampleText.vue'
-import DWorker from '~/components/global/SampleWorker.vue'
-import DCard from '~/components/global/Card.vue'
-import DNavigation from '~/components/global/Navigation.vue'
-import DSpecification from '~/components/profession/Specification.vue'
-import DList from '~/components/profession/List.vue'
+import DTitle from '~/components/global/Title.vue';
+import DMenu from '~/components/global/Menu.vue';
+import DText from '~/components/global/SampleText.vue';
+import DWorker from '~/components/global/SampleWorker.vue';
+import DCard from '~/components/global/Card.vue';
+import DNavigation from '~/components/global/Navigation.vue';
+import DSpecification from '~/components/profession/Specification.vue';
 import priceFormatter from '@/helpers/priceFormatter';
 
 export default {
@@ -197,13 +230,12 @@ export default {
     DCard,
     DNavigation,
     DSpecification,
-    DList,
   },
   middleware: 'card',
   data() {
     return {
       active: 0,
-    }
+    };
   },
   computed: {
     getData() {
@@ -303,17 +335,17 @@ export default {
       ];
     },
     getRandomPicture() {
-      return require (`~/assets/img/card/${Math.floor(Math.random() * 6) + 1}.png`)
+      return require(`~/assets/img/card/${Math.floor(Math.random() * 6) + 1}.png`);
     },
     getWorkWith() {
       const workWith = this.getData.works_with;
       const result = [];
-      for (let index = 0; index < this.$store.state.cards.length; index++) {
+      for (let index = 0; index < this.$store.state.cards.length; index += 1) {
         const card = this.$store.state.cards[index];
         if (workWith.includes(card.id)) {
           result.push({
             title: card.title,
-            to: card.id
+            to: card.id,
           });
         }
       }
@@ -327,7 +359,7 @@ export default {
         return [];
       }
       const result = [];
-      for (let index = 0; index < this.$store.state.cards.length; index++) {
+      for (let index = 0; index < this.$store.state.cards.length; index += 1) {
         const card = this.$store.state.cards[index];
         if (array.includes(card.id)) {
           result.push({
@@ -351,51 +383,52 @@ export default {
           hid: 'description',
           name: 'description',
           content: `${this.getData.description}`,
-        }
+        },
       ],
-    }
-  }
-}
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .header {
   background-color: #fff;
 }
+
 .footer {
   padding-top: 36px;
-  border-top: 2px solid rgba(0, 0, 0, 0.05);
+  border-top: 2px solid rgba(0, 0, 0, .05);
 }
+
 .profession {
   width: 100%;
   max-width: 1200px;
   position: relative;
   margin: 0 auto;
-  padding-top: 394px;
+  margin-top: 48px;
   padding-bottom: 142px;
 }
+
 .profession-main {
   width: 100%;
   max-width: 1200px;
   height: 387px;
-  position: absolute;
-  top: 48px;
   padding-left: 103px;
   padding-right: 103px;
   padding-top: 48px;
   background: #3E39D3;
-  background-image: url('~/assets/img/profession/bg.png');
+  background-image: url("~/assets/img/profession/bg.png");
   background-position: right;
   background-repeat: no-repeat;
   border-radius: 12px;
   z-index: 0;
 }
+
 .profession-title {
   margin-top: 36px;
   max-width: 95%;
-  white-space: nowrap;
-  overflow: hidden;
   letter-spacing: 2px;
 }
+
 .subtitle {
   font-family: Jost, sans-serif;
   font-size: 28px;
@@ -416,6 +449,7 @@ export default {
     line-height: 35px;
   }
 }
+
 .profession-subtitle {
   width: 100%;
   max-width: 584px;
@@ -428,31 +462,36 @@ export default {
   line-height: 25px;
   letter-spacing: 0;
   text-align: left;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, .7);
   text-overflow: ellipsis;
 }
+
 .date-container {
   margin-top: 36px;
   display: flex;
 }
+
 .date {
   margin-left: 5px;
-  font-family: Rubik, sans-serif;
+  font-family: "Rubik", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   color: #C5C4F2;
 }
+
 .content-wrapper {
   width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
 }
+
 .marked-icon {
   margin-left: 3.67px;
 }
+
 .knowledge {
   width: 100%;
   max-width: 892px;
@@ -461,6 +500,7 @@ export default {
   border-radius: 12px;
   background: #fff;
 }
+
 .image._big {
   max-width: 844px;
   width: 100%;
@@ -469,67 +509,82 @@ export default {
   margin-bottom: 24px;
   object-fit: cover;
 }
+
 .skills {
   width: 100%;
   max-width: 892px;
   margin-top: 32px;
   padding: 32px;
   margin-left: -24px;
-  background:#F1FCF7;
+  background: #F1FCF7;
 }
+
 .skills-content {
   margin-top: 24px;
   max-width: 540px;
   width: 100%;
 }
+
 .skills-content:last-child {
   margin-bottom: 0;
 }
+
 .tools {
   margin-top: 32px;
   padding-left: 8px
 }
+
 .worker_block {
   margin-top: 24px;
 }
+
 .content_advice {
   margin-top: 24px;
   width: 100%;
   max-width: 705px;
 }
+
 .interesting {
   width: 100%;
   max-width: 892px;
   margin-top: 48px;
 }
+
 .cards {
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .container._advice {
   padding: 24px 32px;
 }
+
 .read {
   margin-top: 48px;
 }
+
 .links {
   margin-top: 24px;
   display: flex;
   flex-direction: column;
 }
+
 .link_read {
   display: flex;
   margin-bottom: 18px;
 }
+
 .link_read:last-child {
   margin-bottom: 0;
 }
+
 .link_read:hover {
   color: #4F5A6A;
   text-decoration: underline;
 }
+
 .link_text {
   font-family: Jost, sans-serif;
   font-style: normal;
@@ -538,10 +593,12 @@ export default {
   line-height: 35px;
   color: #4F5A6A;
 }
+
 .arrow {
   width: 32px;
   height: max-content;
 }
+
 .circle {
   width: 5px;
   height: 5px;
@@ -558,10 +615,12 @@ export default {
   top: 24px;
   z-index: 2;
 }
+
 .menu {
   top: 48px;
   z-index: 2;
 }
+
 .ads_small {
   top: 478px;
   width: 284px;
@@ -569,6 +628,7 @@ export default {
   margin-top: 24px;
   background: #ECECEC;
 }
+
 .ads_big {
   height: 200px;
   margin-top: 24px;
@@ -579,21 +639,27 @@ export default {
   .container_menu {
     display: none;
   }
+
   .read {
     padding-left: 24px;
   }
+
   .interesting {
     padding-left: 24px
   }
+
   .content-wrapper {
     max-width: 100%;
+
     .d-container {
       max-width: 100%;
     }
   }
+
   .cards {
     flex-direction: column;
     margin-right: 24px;
+
     .card {
       width: 100%;
       margin-bottom: 20px;
@@ -602,8 +668,111 @@ export default {
 }
 
 @media (max-width: 1024px) {
+  .profession-main {
+    height: auto;
+    min-height: 345px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+    line-height: 35px;
+    padding: 24px 18px;
+  }
+
+  .text {
+    padding: 0 18px;
+    padding-bottom: 24px;
+  }
+
   .profession {
     overflow: hidden;
+    padding: 0 15px;
+  }
+
+  .skills {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 24px 16px;
+
+    .subtitle {
+      padding: 0;
+    }
+  }
+
+  .image._big {
+    width: 100%;
+    height: 120px;
+    margin-top: 0;
+    margin-bottom: 0;
+    object-fit: cover;
+  }
+
+  .profession-main {
+    padding: 18px 16px;
+  }
+
+  .profession-title {
+    margin-top: 4px;
+  }
+
+  .profession-subtitle {
+    margin-top: 10px;
+  }
+
+  .date-container {
+    margin-top: 24px;
+  }
+
+  .d-container._advice {
+    padding: 24px 16px;
+    .subtitle {
+      padding: 0;
+    }
+  }
+
+  .d-container._famous {
+    padding: 24px 16px;
+    .subtitle {
+      padding: 0;
+    }
+  }
+
+  .worker_block {
+    margin-top: 10px;
+  }
+
+  .d-container.read {
+    padding: 24px 16px;
+
+    .links {
+      margin-top: 14px;
+    }
+
+    .link_text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .link_read {
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      padding: 0;
+    }
+  }
+
+  .tools {
+    padding-left: 0;
+    padding: 0 18px;
+
+    .subtitle {
+      padding: 0;
+    }
+  }
+
+  .arrow {
+    width: 24px;
   }
 }
 </style>

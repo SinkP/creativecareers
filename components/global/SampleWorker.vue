@@ -1,7 +1,10 @@
 <template lang="html">
-  <nuxt-link :to="to" :href="href ? href : to" class="badge">
+  <nuxt-link
+    :to="to" :href="href ? href : to"
+    class="badge"
+  >
     <img class="icon" :src="(icon)">
-    <h3 class="title">
+    <h3 class="d-title">
       {{ title }}
     </h3>
   </nuxt-link>
@@ -26,7 +29,7 @@ export default {
       default: '',
     },
   },
-}
+};
 </script>
 <style scoped lang="scss">
 .badge {
@@ -36,15 +39,16 @@ export default {
   border-radius: 8px;
   padding: 12px 16px;
   background: #F5F6F7;
-  display:inline-flex;
+  display: inline-flex;
   align-items: center;
-  transition: 0.3s;
+  transition: .3s;
 
   &:hover {
     background: #ececec;
   }
 }
-.title {
+
+.d-title {
   font-family: Jost, sans-serif;
   color: #000;
   font-size: 18px;
@@ -54,6 +58,7 @@ export default {
   letter-spacing: 0;
   text-align: left;
 }
+
 .icon {
   width: 20px;
   margin-right: 10px;

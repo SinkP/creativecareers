@@ -31,9 +31,11 @@ export default {
   border-radius: 5px;
   background: #365DE7;
 }
+
 .button:hover {
   background: #0F36C1;
 }
+
 .button__text {
   font-family: Jost, sans-serif;
   font-size: 18px;
@@ -42,5 +44,6 @@ export default {
   font-weight: 700;
   line-height: 26px;
   color: #fff;
+  margin-bottom: 0;
 }
 </style>

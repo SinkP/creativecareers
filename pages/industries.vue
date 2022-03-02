@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DList
+    <d-list
       :departments="departments"
       v-bind="data"
       :navigation="navigation"
@@ -9,6 +9,7 @@
 </template>
 <script>
 import DList from '~/components/pages/List.vue';
+
 export default {
   components: {
     DList,
@@ -24,18 +25,15 @@ export default {
         {
           title: 'Индустрии',
           to: '/industries',
-        }
+        },
       ],
     };
-  },
-  async mounted() {
-    await this.$store.dispatch('FETCH_CAREER_CARDS');
   },
   computed: {
     departments() {
       const result = [];
-      for (let index = 0; index < this.$store.state.departments.length; index++) {
-        const department = Object.assign({}, this.$store.state.departments[index]);
+      for (let index = 0; index < this.$store.state.departments.length; index += 1) {
+        const department = { ...this.$store.state.departments[index] };
         department.cards = this.getCardsOfDepartments(department.career_cards);
         result.push(department);
       }
@@ -47,9 +45,9 @@ export default {
   },
   methods: {
     getCardsOfDepartments(arrayOfId) {
-      const cards = this.$store.state.cards;
+      const { cards } = this.$store.state;
       const result = [];
-      for (let index = 0; index < cards.length; index++) {
+      for (let index = 0; index < cards.length; index += 1) {
         if (arrayOfId.includes(cards[index].id)) {
           result.push(cards[index]);
         }
@@ -59,7 +57,7 @@ export default {
   },
   head() {
     return {
-      title: `Список направлений`,
+      title: 'Список направлений',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -67,9 +65,9 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Какую профессию выбрать для разработки игр',
-        }
+        },
       ],
-    }
-  }
+    };
+  },
 };
 </script>

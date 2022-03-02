@@ -16,11 +16,19 @@ export default {
   },
 
   css: [
-    '~/assets/global.scss'
+    '@/assets/global.scss',
+    '@/assets/vuetify.scss',
   ],
 
+  styleResources: {
+    scss: [
+      '@/assets/mixins.scss',
+    ],
+  },
+
   plugins: [
-    '~/plugins/v-view',
+    '@/plugins/vue-mq',
+    '@/plugins/v-view',
   ],
 
   components: true,
@@ -30,26 +38,25 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics',
+    // '@nuxtjs/svg-sprite',
+    '@nuxtjs/svg',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/device',
   ],
 
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    'vue-scrollto/nuxt',
+    ['vue-scrollto/nuxt', {
+      offset: -70,
+    }],
     '@nuxtjs/yandex-metrika',
     '@nuxtjs/google-adsense',
-
-    'nuxt-mq',
   ],
 
-  'mq': {
-    defaultBreakpoint: 'lg',
-    breakpoints: {
-      sm: 450,
-      md: 1024,
-      lg: Infinity,
-    }
-  },
+  // svgSprite: {
+  //   directory: '/assets/icons',
+  // },
 
   yandexMetrika: {
     id: 86562180,
@@ -80,22 +87,14 @@ export default {
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    optionsPath: './vuetify.config.js',
+    treeShake: true,
+    defaultAssets: {
+      font: false,
+      icons: false,
+    },
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+      disable: true,
+    },
   },
-
-  build: {
-  }
-}
+};

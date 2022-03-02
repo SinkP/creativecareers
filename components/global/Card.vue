@@ -6,7 +6,7 @@
   >
     <img class="image" :src="(picture)">
     <div class="shadow" />
-    <h3 class="title">
+    <h3 class="d-title">
       {{ title }}
     </h3>
     <p class="salary">
@@ -59,7 +59,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: 0.2s;
+  transition: .2s;
   justify-self: center;
 
   &._big {
@@ -76,7 +76,7 @@ export default {
   margin-bottom: 5px;
 }
 
-.title {
+.d-title {
   font-family: Jost, sans-serif;
   font-size: 20px;
   max-width: 100%;
@@ -119,7 +119,7 @@ export default {
   object-fit: cover;
   object-position: center;
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, 0.8) 80.43%);
+  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, .8) 80.43%);
 }
 
 .shadow {
@@ -129,6 +129,6 @@ export default {
   bottom: 0;
   position: absolute;
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, 0.8) 80.43%);
+  background: linear-gradient(180deg, rgba(32, 32, 32, 0) 43.15%, rgba(32, 32, 32, .8) 80.43%);
 }
 </style>

@@ -34,10 +34,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .container_title {
   display: flex;
   align-items: center;
 }
+
 .name {
   margin-left: 12px;
   font-family: Jost, sans-serif;
@@ -48,7 +50,25 @@ export default {
   letter-spacing: 0;
   text-align: left;
 }
+
 .text {
   margin-top: 15px;
+}
+
+@include mobile {
+  .container_title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .name {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .text {
+    margin-top: 8px;
+  }
 }
 </style>

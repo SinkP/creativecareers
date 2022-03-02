@@ -1,20 +1,21 @@
 <template lang="html">
   <div class="subscription">
-    <h3 class="title">
+    <h3 class="d-title">
       <span class="_modified">Подпишитесь</span> на рассылку новых профессий в каталоге
     </h3>
     <div class="form">
       <div class="input-wrapper">
-        <v-input
+        <div
           class="input"
         >
           <v-text-field
-            flat
+            class="textfield"
+            text
             solo
             background-color="rgba(0, 0, 0, 0)"
             label="Введите e-mail"
           />
-        </v-input>
+        </div>
         <v-btn
           elevation="0"
           class="button"
@@ -30,8 +31,7 @@
           color="#365DE7"
           hide-details
           class="checkbox"
-        >
-        </v-checkbox>
+        />
         <span class="text-agreement">
           Принимаю условия <nuxt-link to="/" class="link_agreement">соглашения</nuxt-link>
           и
@@ -43,7 +43,7 @@
 </template>
 <script>
 export default {
-}
+};
 </script>
 <style lang="scss" scoped>
 
@@ -60,7 +60,8 @@ export default {
   box-sizing: border-box;
   border-radius: 12px;
 }
-.title {
+
+.d-title {
   max-width: 321px;
   width: 100%;
   height: 60px;
@@ -72,16 +73,18 @@ export default {
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: 0.08px;
+  letter-spacing: .08px;
 
   ._modified {
     color: #365DE7;
   }
 }
+
 .input-wrapper {
   width: 360px;
   height: 49px;
   display: flex;
+  justify-content: space-between;
   border: 1px solid #E3E5EA;
   box-sizing: border-box;
   border-radius: 8px;
@@ -99,11 +102,31 @@ export default {
     }
   }
 }
+
+.checkbox {
+  ::v-deep {
+    input {
+      opacity: 1 !important;
+    }
+  }
+}
+
 .input {
-  width: 200px;
+  width: 225px;
   height: 49px;
   font-family: Rubik, sans-serif;
 }
+
+.textfield {
+  ::v-deep {
+    .v-input__slot {
+      border: inherit !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+  }
+}
+
 .button {
   margin: 3px;
   font-family: Rubik, sans-serif;
@@ -112,7 +135,7 @@ export default {
   font-style: normal;
   font-weight: 700;
   line-height: 14px;
-  letter-spacing: 0.04em;
+  letter-spacing: .04em;
   text-align: left;
   border-radius: 5px;
 
@@ -120,11 +143,12 @@ export default {
     .v-btn__content {
       font-size: 12px;
       line-height: 14px;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
   }
 }
+
 .agreement {
   margin-top: 12px;
   display: flex;
@@ -157,14 +181,15 @@ export default {
   color: #1E2228;
   overflow: hidden;
 }
+
 .link_agreement {
   text-decoration: underline;
   color: #79829A;
 }
 
-@media (max-width: 1024px) {
+@include mobile {
   .subscription {
-    padding: 24px 15px;
+    padding: 24px 5px;
     height: auto;
     flex-direction: column;
   }
@@ -174,9 +199,10 @@ export default {
     max-width: 100%;
   }
 
-  .title {
+  .d-title {
     margin-bottom: 24px;
     font-size: 18px;
+    height: auto;
     line-height: 24px;
     text-align: center;
   }

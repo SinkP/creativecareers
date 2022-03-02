@@ -34,7 +34,7 @@ export default {
   align-items: center;
   margin-top: 0;
   list-style-type: none;
-  font-family: Rubik, sans-serif;
+  font-family: "Rubik", sans-serif;
   margin-bottom: 8px;
 
   &:last-child {
@@ -42,7 +42,7 @@ export default {
   }
 
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 4px;
     width: 4px;

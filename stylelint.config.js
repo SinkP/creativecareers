@@ -1,7 +1,10 @@
 module.exports = {
   extends: [
-    'stylelint-config-standard',
-    'stylelint-config-prettier'
+    'stylelint-config-airbnb',
+  ],
+  plugins: [
+    'stylelint-scss',
+    'stylelint-order',
   ],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
@@ -9,11 +12,99 @@ module.exports = {
     'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ['v-deep']
+        ignorePseudoElements: ['v-deep'],
       },
     ],
-    'no-descending-specificity': [
-      false
-    ] 
-  }
-}
+    'selector-max-id': 1,
+    'declaration-colon-space-before': 'never',
+    'declaration-colon-space-after': 'always',
+    'at-rule-no-unknown': false,
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: [
+          'after-single-line-comment',
+          'first-nested',
+        ],
+        ignore: [
+          'after-comment',
+          'first-nested',
+          'inside-block',
+        ],
+      },
+    ],
+    'function-comma-space-after': 'always',
+    'media-feature-range-operator-space-before': 'always',
+    'media-feature-range-operator-space-after': 'always',
+    'media-feature-colon-space-before': 'never',
+    'media-feature-colon-space-after': 'always',
+    'string-quotes': 'double',
+    'max-nesting-depth': 6,
+    'scss/dollar-variable-pattern': '^_?[a-z]+[\\w-]*$',
+    'scss/at-extend-no-missing-placeholder': true,
+    'order/order': [
+      'custom-properties',
+      'declarations',
+    ],
+    // 'order/properties-order': [
+    //   'z-index',
+    //   'position',
+    //   'top',
+    //   'right',
+    //   'bottom',
+    //   'left',
+    //   'transform',
+    //   'flex-shrink',
+    //   'flex-grow',
+    //   'order',
+    //   'flex-base',
+    //   'display',
+    //   'flex-direction',
+    //   'justify-content',
+    //   'align-items',
+    //   'flex-wrap',
+    //   'min-width',
+    //   'max-width',
+    //   'min-height',
+    //   'max-height',
+    //   'width',
+    //   'height',
+    //   'margin',
+    //   'margin-top',
+    //   'margin-right',
+    //   'margin-bottom',
+    //   'margin-left',
+    //   'padding',
+    //   'padding-top',
+    //   'padding-right',
+    //   'padding-bottom',
+    //   'padding-left',
+    //   'vertical-align',
+    //   'border-radius',
+    //   'border',
+    //   'border-top',
+    //   'border-right',
+    //   'border-bottom',
+    //   'border-left',
+    //   'background',
+    //   'background-position',
+    //   'background-size',
+    //   'background-color',
+    //   'background-image',
+    //   'background-repeat',
+    //   'outline',
+    //   'box-shadow',
+    //   'font-size',
+    //   'line-height',
+    //   'font-weight',
+    //   'font-style',
+    //   'white-space',
+    //   'text-transform',
+    //   'text-decoration',
+    //   'cursor',
+    //   'opacity',
+    //   'transition',
+    //   'animation',
+    // ],
+  },
+};
