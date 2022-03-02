@@ -16,7 +16,7 @@
       </v-icon>
     </v-btn>
     <app-dialog v-model="search">
-      <app-search class="search-input" />
+      <app-search v-model="searchValue" class="search-input" />
     </app-dialog>
     <d-logo />
     <v-btn

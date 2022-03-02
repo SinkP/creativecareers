@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   head: {
     titleTemplate: '%s - ads',
@@ -8,11 +6,11 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
 
   css: [
@@ -67,7 +65,7 @@ export default {
   },
 
   'google-adsense': {
-    id: 'ca-pub-6142404109621411'
+    id: 'ca-pub-6142404109621411',
   },
 
   googleAnalytics: {
@@ -81,8 +79,8 @@ export default {
 
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      lang: 'en',
+    },
   },
 
   vuetify: {

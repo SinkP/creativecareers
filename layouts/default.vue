@@ -42,7 +42,7 @@ export default {
 
 @include mobile {
   .content {
-    margin-top: 24px;
+    margin-top: 55px;
   }
 }
 </style>
